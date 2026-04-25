@@ -3,9 +3,9 @@ body {
   margin: 0;
   font-family: "Intel One Mono", monospace;
   padding: 0;
-  background-color: rgba(24, 89, 121, 0.9294117647);
+  background-color: #141623;
   background-image: url(../img/Motherboard.jpg);
-  background-repeat: no-repeat; /* prevents tiling */
+  background-repeat: no-repeat;
   background-position: top;
 }
 body p {
@@ -18,18 +18,85 @@ body h1, body h2 {
   color: #ffffff;
 }
 
+nav {
+  background-color: rgba(24, 89, 121, 0.9294117647);
+  padding-left: 20px;
+  height: 90px;
+  align-content: center;
+}
+
 .grid {
   display: grid;
   grid-template-columns: repeat(7, 1fr);
+  min-height: 100vh;
+  gap: 2em;
+  grid-template-areas: "vector1 . . . . . eye" "vector1 lock lock lock key key eye" "vector2 text text answer1 answer1 hashcat hashcat" "vector2 text text answer2 answer2 hashcat hashcat" "vector2 text text answer3 answer3 hashcat hashcat" "vector2 text text answer4 answer4 hashcat hashcat" "vector2 . . . . hashcat hashcat";
 }
 
-nav {
-  grid-column: 1/8;
+.eye {
+  grid-area: eye;
+  background-image: url(../img/eye.png);
+  background-size: fit;
+}
+
+.lock {
+  grid-area: lock;
   background-color: rgba(24, 89, 121, 0.9294117647);
-  padding-left: 20px;
+  background-image: url(../img/Group17.png);
+  background-size: cover;
+  border-radius: 10px;
+  min-height: 100px;
 }
 
-img {
-  grid-column: 6/8;
-  transform: translateY(-500px);
+.key {
+  grid-area: key;
+  background-color: rgba(24, 89, 121, 0.9294117647);
+  background-image: url(../img/key.png);
+  background-size: cover;
+  border-radius: 10px;
+  min-height: 100px;
+}
+
+.text {
+  grid-area: text;
+  background-color: rgba(24, 89, 121, 0.9294117647);
+  color: #ffffff;
+  border-radius: 10px;
+  min-height: 100px;
+}
+
+.answer1 {
+  grid-area: answer1;
+  background-color: #00BACF;
+  color: #ffffff;
+  border-radius: 10px;
+  min-height: 100px;
+}
+
+.answer2 {
+  grid-area: answer2;
+  background-color: #00BACF;
+  color: #ffffff;
+  border-radius: 10px;
+  min-height: 100px;
+}
+
+.answer3 {
+  grid-area: answer3;
+  background-color: #00BACF;
+  color: #ffffff;
+  border-radius: 10px;
+  min-height: 100px;
+}
+
+.answer4 {
+  grid-area: answer4;
+  background-color: #00BACF;
+  color: #ffffff;
+  border-radius: 10px;
+  min-height: 100px;
+}
+
+.hashcat {
+  grid-area: hashcat;
 }/*# sourceMappingURL=style.css.map */
