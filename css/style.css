@@ -1,1 +1,35 @@
-/*# sourceMappingURL=style.css.map */
+body {
+  box-sizing: border-box;
+  margin: 0;
+  font-family: "Intel One Mono", monospace;
+  padding: 0;
+  background-color: rgba(24, 89, 121, 0.9294117647);
+  background-image: url(../img/Motherboard.jpg);
+  background-repeat: no-repeat; /* prevents tiling */
+  background-position: top;
+}
+body p {
+  font-size: 16px;
+  color: #ffffff;
+  line-height: 1.5;
+}
+body h1, body h2 {
+  font-weight: 300;
+  color: #ffffff;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+}
+
+nav {
+  grid-column: 1/8;
+  background-color: rgba(24, 89, 121, 0.9294117647);
+  padding-left: 20px;
+}
+
+img {
+  grid-column: 6/8;
+  transform: translateY(-500px);
+}/*# sourceMappingURL=style.css.map */

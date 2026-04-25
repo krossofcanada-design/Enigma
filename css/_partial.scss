@@ -1,0 +1,14 @@
+// Variables
+
+$bg-color: #185979ed;
+$sec-color: #00BACF;
+$text-color: #ffffff;
+$font: 'Intel One Mono', monospace;
+
+
+
+// Mixins
+
+@mixin bg-boxes($bg-color: #185879) {
+    border-radius: 20%;
+}

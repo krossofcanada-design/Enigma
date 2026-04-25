@@ -1,0 +1,47 @@
+// We're calling the _partial.scss file
+
+@use 'partial';
+
+
+
+body {
+    box-sizing: border-box;
+    margin: 0;
+    font-family: partial.$font;
+    padding: 0;
+    background-color: partial.$bg-color;
+    background-image: url(../img/Motherboard.jpg);
+    background-repeat: no-repeat; /* prevents tiling */
+    background-position: top;
+   
+    p {
+        font-size: 16px;
+        color: partial.$text-color;
+        line-height: 1.5;
+    }
+
+    h1, h2 {
+        font-weight: 300;
+        color: partial.$text-color;
+
+    }
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+
+}
+
+nav {
+    grid-column: 1/8;
+    background-color: partial.$bg-color;
+    padding-left: 20px;
+
+}
+
+img {
+    grid-column: 6/8;
+    transform: translateY(-500px);
+}
+
