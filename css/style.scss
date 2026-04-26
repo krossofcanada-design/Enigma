@@ -35,7 +35,121 @@ nav {
 }
 
 
-@media (max-width: 1439px) {
+.grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    min-height: 100vh;
+    gap: 1em;
+    grid-template-areas:
+    "vector1 . . . . eye eye"
+    "vector1 lock lock lock key key ."
+    "vector2 text text text text text ."
+    "vector2 answer1 answer1 answer1 answer1 answer1 ."
+    "vector2 answer2 answer2 answer2 answer2 answer2 ."
+    "vector2 answer3 answer3 answer3 answer3 answer3 ."
+    "vector2 answer4 answer4 answer4 answer4 answer4 ."
+
+    ;
+
+}
+
+.vector1 {
+    grid-area: vector1;
+    background-image: url(../img/vector1.png);
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.vector2 {
+    grid-area: vector2;
+    background-image: url(../img/vector2.png);
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.eye {
+    grid-area: eye;
+    background-image: url(../img/eye.png);
+    transform: translateY(-50px);
+    background-size: contain;
+    background-position: right;
+    background-repeat: no-repeat;
+}
+
+
+.lock {
+    grid-area: lock;
+    background-color: partial.$bg-color;
+    background-image: url(../img/Group17.png);
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    @include partial.bg-boxes();
+}
+
+.key {
+    grid-area: key;
+    background-color: partial.$bg-color;
+    background-image: url(../img/key.png);
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    
+    @include partial.bg-boxes();
+}
+
+.text {
+    grid-area: text;
+    background-color: partial.$bg-color;
+    color: partial.$text-color;
+
+    @include partial.bg-boxes();
+}
+
+.answer1 {
+    grid-area: answer1;
+    background-color: partial.$sec-color;
+    color: partial.$text-color;
+
+    @include partial.bg-boxes($bg-color: partial.$sec-color);
+}
+
+.answer2 {
+    grid-area: answer2;
+    background-color: partial.$sec-color;
+    color: partial.$text-color;
+
+    @include partial.bg-boxes($bg-color: partial.$sec-color);
+}
+
+.answer3 {
+    grid-area: answer3;
+    background-color: partial.$sec-color;
+    color: partial.$text-color;
+
+    @include partial.bg-boxes($bg-color: partial.$sec-color);
+}
+
+.answer4 {
+    grid-area: answer4;
+    background-color: partial.$sec-color;
+    color: partial.$text-color;
+
+    @include partial.bg-boxes($bg-color: partial.$sec-color);
+}
+
+.hashcat {
+    grid-area: hashcat;
+    background-image: url(../img/hashcat.png);
+    object-fit: contain;
+    background-repeat: no-repeat;
+
+}
+
+
+
+@media (min-width: 1050px) {
 
     .grid {
         display: grid;
@@ -46,20 +160,28 @@ nav {
         "vector1 . . . . . eye"
         "vector1 lock lock lock key key eye"
         "vector2 text text text text text ."
-        "vector2 answer1 answer1 answer1 hashcat hashcat"
-        "vector2 answer2 answer2 answer2 hashcat hashcat"
-        "vector2 answer3 answer3 answer3 hashcat hashcat"
-        "vector2 answer4 answer4 answer4 hashcat hashcat"
-        "vector2 . . . . hashcat hashcat"
+        "vector2 answer1 answer1 answer1 hashcat hashcat hashcat"
+        "vector2 answer2 answer2 answer2 hashcat hashcat hashcat"
+        "vector2 answer3 answer3 answer3 hashcat hashcat hashcat"
+        "vector2 answer4 answer4 answer4 hashcat hashcat hashcat"
+
         ;
 
     }
 
+    .vector1 {
+        grid-area: vector1;
+        background-image: url(../img/vector1.png);
+        background-position: center;
+        background-repeat: no-repeat;
+    }
 
     .eye {
         grid-area: eye;
         background-image: url(../img/eye.png);
-        object-fit: contain;
+        transform: translateY(-110px);
+        background-size: contain;
+        background-position: center;
         background-repeat: no-repeat;
     }
 
@@ -68,7 +190,8 @@ nav {
         grid-area: lock;
         background-color: partial.$bg-color;
         background-image: url(../img/Group17.png);
-        object-fit: contain;
+        background-size: contain;
+        background-position: center;
         background-repeat: no-repeat;
 
         @include partial.bg-boxes();
@@ -78,7 +201,8 @@ nav {
         grid-area: key;
         background-color: partial.$bg-color;
         background-image: url(../img/key.png);
-        object-fit: contain;
+        background-size: contain;
+        background-position: center;
         background-repeat: no-repeat;
         
         @include partial.bg-boxes();
@@ -153,11 +277,19 @@ nav {
 
     }
 
+    .vector1 {
+        grid-area: vector1;
+        background-image: url(../img/vector1.png);
+        background-position: center;
+        background-repeat: no-repeat;
+    }
 
     .eye {
         grid-area: eye;
         background-image: url(../img/eye.png);
-        object-fit: contain;
+        transform: translateY(-100px);
+        background-size: contain;
+        background-position: center;
         background-repeat: no-repeat;
     }
 
@@ -166,7 +298,8 @@ nav {
         grid-area: lock;
         background-color: partial.$bg-color;
         background-image: url(../img/Group17.png);
-        object-fit: contain;
+        background-size: contain;
+        background-position: center;
         background-repeat: no-repeat;
 
         @include partial.bg-boxes();
@@ -176,7 +309,8 @@ nav {
         grid-area: key;
         background-color: partial.$bg-color;
         background-image: url(../img/key.png);
-        object-fit: contain;
+        background-size: contain;
+        background-position: center;
         background-repeat: no-repeat;
         
         @include partial.bg-boxes();
