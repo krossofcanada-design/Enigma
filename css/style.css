@@ -13,9 +13,11 @@ body p {
   color: #ffffff;
   line-height: 1.5;
 }
-body h1, body h2 {
+body h1, body a {
   font-weight: 300;
+  font-size: 30px;
   color: #ffffff;
+  text-decoration: none;
 }
 
 nav {
@@ -23,6 +25,32 @@ nav {
   padding-left: 20px;
   height: 90px;
   align-content: center;
+}
+
+.stage {
+  display: none;
+  margin: 0 auto;
+  padding: 3em;
+  line-height: 1.5;
+}
+.stage.active {
+  display: block;
+}
+
+.btn {
+  display: none;
+  margin: 0 auto;
+  padding: 1em 2em;
+  background-color: transparent;
+  border: none;
+  font-family: "Intel One Mono", monospace;
+}
+.btn :hover {
+  color: rgba(24, 89, 121, 0.9294117647);
+  transition: 0.5s;
+}
+.btn.active {
+  display: block;
 }
 
 .grid {
@@ -80,6 +108,8 @@ nav {
   grid-area: text;
   background-color: rgba(24, 89, 121, 0.9294117647);
   color: #ffffff;
+  height: -moz-fit-content;
+  height: fit-content;
   border-radius: 10px;
 }
 
@@ -87,6 +117,8 @@ nav {
   grid-area: answer1;
   background-color: rgba(0, 186, 207, 0.9294117647);
   color: #ffffff;
+  height: -moz-fit-content;
+  height: fit-content;
   border-radius: 10px;
 }
 
@@ -94,6 +126,8 @@ nav {
   grid-area: answer2;
   background-color: rgba(0, 186, 207, 0.9294117647);
   color: #ffffff;
+  height: -moz-fit-content;
+  height: fit-content;
   border-radius: 10px;
 }
 
@@ -101,6 +135,8 @@ nav {
   grid-area: answer3;
   background-color: rgba(0, 186, 207, 0.9294117647);
   color: #ffffff;
+  height: -moz-fit-content;
+  height: fit-content;
   border-radius: 10px;
 }
 
@@ -108,6 +144,8 @@ nav {
   grid-area: answer4;
   background-color: rgba(0, 186, 207, 0.9294117647);
   color: #ffffff;
+  height: -moz-fit-content;
+  height: fit-content;
   border-radius: 10px;
 }
 
@@ -163,30 +201,40 @@ nav {
     grid-area: text;
     background-color: rgba(24, 89, 121, 0.9294117647);
     color: #ffffff;
+    height: -moz-fit-content;
+    height: fit-content;
     border-radius: 10px;
   }
   .answer1 {
     grid-area: answer1;
     background-color: rgba(0, 186, 207, 0.9294117647);
     color: #ffffff;
+    height: -moz-fit-content;
+    height: fit-content;
     border-radius: 10px;
   }
   .answer2 {
     grid-area: answer2;
     background-color: rgba(0, 186, 207, 0.9294117647);
     color: #ffffff;
+    height: -moz-fit-content;
+    height: fit-content;
     border-radius: 10px;
   }
   .answer3 {
     grid-area: answer3;
     background-color: rgba(0, 186, 207, 0.9294117647);
     color: #ffffff;
+    height: -moz-fit-content;
+    height: fit-content;
     border-radius: 10px;
   }
   .answer4 {
     grid-area: answer4;
     background-color: rgba(0, 186, 207, 0.9294117647);
     color: #ffffff;
+    height: -moz-fit-content;
+    height: fit-content;
     border-radius: 10px;
   }
   .hashcat {
@@ -241,30 +289,40 @@ nav {
     grid-area: text;
     background-color: rgba(24, 89, 121, 0.9294117647);
     color: #ffffff;
+    height: -moz-fit-content;
+    height: fit-content;
     border-radius: 10px;
   }
   .answer1 {
     grid-area: answer1;
     background-color: rgba(0, 186, 207, 0.9294117647);
     color: #ffffff;
+    height: -moz-fit-content;
+    height: fit-content;
     border-radius: 10px;
   }
   .answer2 {
     grid-area: answer2;
     background-color: rgba(0, 186, 207, 0.9294117647);
     color: #ffffff;
+    height: -moz-fit-content;
+    height: fit-content;
     border-radius: 10px;
   }
   .answer3 {
     grid-area: answer3;
     background-color: rgba(0, 186, 207, 0.9294117647);
     color: #ffffff;
+    height: -moz-fit-content;
+    height: fit-content;
     border-radius: 10px;
   }
   .answer4 {
     grid-area: answer4;
     background-color: rgba(0, 186, 207, 0.9294117647);
     color: #ffffff;
+    height: -moz-fit-content;
+    height: fit-content;
     border-radius: 10px;
   }
   .hashcat {

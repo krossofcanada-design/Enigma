@@ -4,6 +4,8 @@
 
 
 
+// Global settings
+
 body {
     box-sizing: border-box;
     margin: 0;
@@ -20,10 +22,11 @@ body {
         line-height: 1.5;
     }
 
-    h1, h2 {
+    h1, a {
         font-weight: 300;
+        font-size: 30px;
         color: partial.$text-color;
-
+        text-decoration: none;
     }
 }
 
@@ -34,6 +37,49 @@ nav {
     align-content: center;
 }
 
+
+
+
+// stage setup
+
+.stage {
+    display: none;
+    margin: 0 auto;
+    padding: 3em;
+    line-height: 1.5;
+
+    // & tager fat i active fra html. Man kan ogsaa skrive .stage.active
+    &.active { 
+        display: block;
+    }  
+}
+
+
+
+.btn {
+    display: none;
+    margin: 0 auto;
+    padding: 1em 2em;
+    background-color: transparent;
+    border: none;
+    font-family: partial.$font;
+
+    :hover {
+        color: partial.$bg-color;
+        transition: 0.5s;
+
+    }
+
+    &.active { 
+        display: block;
+    }  
+}
+
+
+
+
+
+// Grid and media-query 
 
 .grid {
     display: grid;
@@ -103,14 +149,17 @@ nav {
     grid-area: text;
     background-color: partial.$bg-color;
     color: partial.$text-color;
+    height: fit-content;
 
     @include partial.bg-boxes();
 }
+
 
 .answer1 {
     grid-area: answer1;
     background-color: partial.$sec-color;
     color: partial.$text-color;
+    height: fit-content;
 
     @include partial.bg-boxes($bg-color: partial.$sec-color);
 }
@@ -119,6 +168,7 @@ nav {
     grid-area: answer2;
     background-color: partial.$sec-color;
     color: partial.$text-color;
+    height: fit-content;
 
     @include partial.bg-boxes($bg-color: partial.$sec-color);
 }
@@ -127,6 +177,7 @@ nav {
     grid-area: answer3;
     background-color: partial.$sec-color;
     color: partial.$text-color;
+    height: fit-content;
 
     @include partial.bg-boxes($bg-color: partial.$sec-color);
 }
@@ -135,6 +186,7 @@ nav {
     grid-area: answer4;
     background-color: partial.$sec-color;
     color: partial.$text-color;
+    height: fit-content;
 
     @include partial.bg-boxes($bg-color: partial.$sec-color);
 }
@@ -212,7 +264,7 @@ nav {
         grid-area: text;
         background-color: partial.$bg-color;
         color: partial.$text-color;
-
+        height: fit-content;
         @include partial.bg-boxes();
     }
 
@@ -220,6 +272,7 @@ nav {
         grid-area: answer1;
         background-color: partial.$sec-color;
         color: partial.$text-color;
+        height: fit-content;
 
         @include partial.bg-boxes($bg-color: partial.$sec-color);
     }
@@ -228,6 +281,7 @@ nav {
         grid-area: answer2;
         background-color: partial.$sec-color;
         color: partial.$text-color;
+        height: fit-content;
 
         @include partial.bg-boxes($bg-color: partial.$sec-color);
     }
@@ -236,6 +290,7 @@ nav {
         grid-area: answer3;
         background-color: partial.$sec-color;
         color: partial.$text-color;
+        height: fit-content;
 
         @include partial.bg-boxes($bg-color: partial.$sec-color);
     }
@@ -244,6 +299,7 @@ nav {
         grid-area: answer4;
         background-color: partial.$sec-color;
         color: partial.$text-color;
+        height: fit-content;
 
         @include partial.bg-boxes($bg-color: partial.$sec-color);
     }
@@ -320,7 +376,7 @@ nav {
         grid-area: text;
         background-color: partial.$bg-color;
         color: partial.$text-color;
-
+        height: fit-content;
         @include partial.bg-boxes();
     }
 
@@ -328,6 +384,7 @@ nav {
         grid-area: answer1;
         background-color: partial.$sec-color;
         color: partial.$text-color;
+        height: fit-content;
 
         @include partial.bg-boxes($bg-color: partial.$sec-color);
     }
@@ -336,6 +393,7 @@ nav {
         grid-area: answer2;
         background-color: partial.$sec-color;
         color: partial.$text-color;
+        height: fit-content;
 
         @include partial.bg-boxes($bg-color: partial.$sec-color);
     }
@@ -344,6 +402,7 @@ nav {
         grid-area: answer3;
         background-color: partial.$sec-color;
         color: partial.$text-color;
+        height: fit-content;
 
         @include partial.bg-boxes($bg-color: partial.$sec-color);
     }
@@ -352,6 +411,7 @@ nav {
         grid-area: answer4;
         background-color: partial.$sec-color;
         color: partial.$text-color;
+        height: fit-content;
 
         @include partial.bg-boxes($bg-color: partial.$sec-color);
     }
