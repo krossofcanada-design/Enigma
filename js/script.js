@@ -1,99 +1,142 @@
-// First we call all the classes and ids to connect this file with html
+// Calling the DOMs
 
 const stages = document.querySelectorAll(".stage");
-const btns = document.querySelectorAll(".btn");
-const answers = [
-    document.querySelector(".answer1"),
-    document.querySelector(".answer2"),
-    document.querySelector(".answer3"),
-    document.querySelector(".answer4")
-];
+
+const answer1 = document.querySelectorAll(".option1");
+const answer2 = document.querySelectorAll(".option2");
+const answer3 = document.querySelectorAll(".option3");
+const answer4 = document.querySelectorAll(".option4");
 
 
 
-//Functions - Building the branch tree!
 
-// One non-redundant helper that resets each stage and annswer
-const resetUI = () => {
-    stages.forEach(stage => stage.classList.remove("active"));
-    answers.forEach(answer => answer.classList.remove("active"));
-};
+//Functions
 
 
-const showStage1WithAnswers = () => {
-    resetUI();
-
-    // Show stage 1
-    stages[1].classList.add("active");
-
-    // Show all answer areas
-    answers[0].classList.add("active");
-    answers[1].classList.add("active");
-    answers[2].classList.add("active");
-    answers[3].classList.add("active");
-};
-
-
-/* const nextStage = (e) => {
-    // console.log("clicked")
-    console.log(e.target.textContent); //knapper skal have unik tekst (textContent)
+// Stages connected with answer 1 buttons
+const nextStage = (e) => {
+    // console.log("clicked");
+    console.log(e.target.textContent); //Unique text content from buttons! (textContent)
     switch(e.target.textContent) {
+        /* Ordered according to answer1, see Figma file "Flowchart of ENIGMA"*/ 
         case "Continue_": 
             console.log("Continue was clicked");
             stages[0].classList.remove("active");
-            btns[0].classList.remove("active");
             stages[1].classList.add("active");
-            btns[1].classList.add("active");
+            answer1[0].classList.remove("active");
+            answer1[1].classList.add("active");
+            answer2[1].classList.add("active");
+            answer3[1].classList.add("active");
         break;
-        case "1) You investigate the students' social media to find more personal information_":
-            console.log("Option 1");
+        case "1) You make use of known hacker tools_":
+            console.log("Answer");
             stages[1].classList.remove("active");
             stages[2].classList.add("active");
+            answer1[1].classList.remove("active");
+            answer1[2].classList.add("active");
+            answer2[1].classList.remove("active");
+            answer2[2].classList.add("active");
+            answer3[1].classList.remove("active");
         break;
-        case "2) Pretending to be a student, you write an email to one of the teachers_":
-            console.log("Option 2");
-            stages[1].classList.remove("active");
-            stages[3].classList.add("active");
-        break;
-        case "3) You make use of known hacker tools_":
-            console.log("Option 3");
-            stages[1].classList.remove("active");
-            stages[4].classList.add("active");
-        break;
-        case "Go back one":
-            console.log("Go back one");
+        case "1) Use brute force attack_":
+            console.log("Answer");
             stages[2].classList.remove("active");
-            stages[3].classList.remove("active");
-            stages[4].classList.remove("active");
-            stages[0].classList.add("active");
+            stages[5].classList.add("active");
+            answer1[2].classList.remove("active");
+            answer1[5].classList.add("active");
+            answer2[2].classList.remove("active");
+            answer2[5].classList.add("active");
+            answer3[5].classList.add("active");           
+            answer4[5].classList.add("active");
+        break;
+        case "1) Velv3tyTeacupGr0ans@Covv":
+            console.log("Answer");
+            stages[5].classList.remove("active")
+            stages[12].classList.add("active");
+            answer1[5].classList.remove("active");
+            answer1[7].classList.add("active");
+            answer2[5].classList.remove("active");
+            answer3[5].classList.remove("active");
+            answer4[5].classList.remove("active");
+        break;
+        case "2) Dr@gonsMoon@Forever!":
+            console.log("Answer");
+            stages[5].classList.remove("active")
+            stages[13].classList.add("active");
+            answer1[5].classList.remove("active");
+            answer1[7].classList.add("active");
+            answer2[5].classList.remove("active");
+            answer3[5].classList.remove("active");
+            answer4[5].classList.remove("active");
+
+        break;
+        case "3) designacademy2024":
+            console.log("Answer");
+            stages[5].classList.remove("active")
+            stages[14].classList.add("active");
+            answer1[5].classList.remove("active");
+            answer1[7].classList.add("active");
+            answer2[5].classList.remove("active");
+            answer3[5].classList.remove("active");
+            answer4[5].classList.remove("active");
+        break;
+        case "4) SlimySnailsAndPuppyDogTail":
+            console.log("Answer");
+            stages[5].classList.remove("active")
+            stages[15].classList.add("active");
+            answer1[5].classList.remove("active");
+            answer1[7].classList.add("active");
+            answer2[5].classList.remove("active");
+            answer3[5].classList.remove("active");
+            answer4[5].classList.remove("active");
         break;
 
-        default: console.log("Something is rotten in the State of Denmark"); 
+        case "Play again!":
+            console.log("Answer");
+            stages[12].classList.remove("active")
+            stages[13].classList.remove("active")
+            stages[14].classList.remove("active")
+            stages[15].classList.remove("active")
+            stages[0].classList.add("active");
+            answer1[7].classList.remove("active");
+            answer1[0].classList.add("active");
+
+        break;
+
+        /* Ordered according to answer2, see Figma file "Flowchart of ENIGMA"*/
+        case "1) You make use of known hacker tools_":
+            console.log("Answer1");
+            stages[1].classList.remove("active");
+            stages[2].classList.add("active");
+            answer1[1].classList.remove("active");
+            answer1[2].classList.add("active");
+            answer2[1].classList.remove("active");
+            answer2[2].classList.add("active");
+            answer3[1].classList.remove("active");
+
+
+        default: console.log("Something is rotten in the State of Denmark") /* to log and check if it worked or if there's an error*/
     }
 }
-
-*/
-
 
 
 // Event listeners
 
-/*
-for (const btn of btns) {
-    btn.addEventListener("click", nextStage);
+/* We use for... loop because there are many .btn and .answer1 etc. From here we go up to the closest event that this eventlistener is reacting to. In this case nextStage */
+
+
+for (const answer of answer1) {
+    answer.addEventListener("click", nextStage);
 }
-*/
 
-const nextStage = (e) => {
-    const text = e.currentTarget.textContent.trim();
+for (const answer of answer2) {
+    answer.addEventListener("click", nextStage);
+}
 
-    switch(text) {
-        case "Continue_":
-            showStage1WithAnswers();
-            break;
-    }
-};
+for (const answer of answer3) {
+    answer.addEventListener("click", nextStage);
+}
 
-btns.forEach(btn => {
-    btn.addEventListener("click", nextStage);
-});
+for (const answer of answer4) {
+    answer.addEventListener("click", nextStage);
+}

@@ -22,7 +22,7 @@ body h1, body a {
 
 nav {
   background-color: rgba(24, 89, 121, 0.9294117647);
-  padding-left: 20px;
+  padding-left: 25px;
   height: 90px;
   align-content: center;
 }
@@ -37,19 +37,32 @@ nav {
   display: block;
 }
 
-.btn {
-  display: block;
+.option1,
+.option2,
+.option3,
+.option4 {
+  display: none;
   margin: 0 auto;
-  padding: 1em 2em;
   background-color: transparent;
   border: none;
+  padding: 1em 2em;
   font-family: "Intel One Mono", monospace;
 }
-.btn :hover {
+.option1 :hover,
+.option2 :hover,
+.option3 :hover,
+.option4 :hover {
   color: rgba(24, 89, 121, 0.9294117647);
   transition: 0.5s;
 }
+.option1.active,
+.option2.active,
+.option3.active,
+.option4.active {
+  display: block;
+}
 
+/* Grid and media-query, mobile first. Max and min widths are set so they make sense with the layout, not according to screen size neccessarily */
 .grid {
   display: grid;
   grid-template-columns: repeat(7, 1fr);

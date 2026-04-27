@@ -28,11 +28,12 @@ body {
         color: partial.$text-color;
         text-decoration: none;
     }
+
 }
 
 nav {
     background-color: partial.$bg-color;
-    padding-left: 20px;
+    padding-left: 25px;
     height: 90px;
     align-content: center;
 }
@@ -40,7 +41,7 @@ nav {
 
 
 
-// stage setup
+// stage and answer setup
 
 .stage {
     display: none;
@@ -48,20 +49,22 @@ nav {
     padding: 3em;
     line-height: 1.5;
 
-    // & tager fat i active fra html. Man kan ogsaa skrive .stage.active
+    // & grabs the html "active". You could also write .stage.active
     &.active { 
         display: block;
     }  
 }
 
 
-
-.btn {
-    display: block;
+.option1,
+.option2,
+.option3,
+.option4 {
+    display: none;
     margin: 0 auto;
-    padding: 1em 2em;
     background-color: transparent;
     border: none;
+    padding: 1em 2em;
     font-family: partial.$font;
 
     :hover {
@@ -70,14 +73,15 @@ nav {
 
     }
 
+    &.active { 
+        display: block;
+    }  
  
 }
 
 
 
-
-
-// Grid and media-query 
+/* Grid and media-query, mobile first. Max and min widths are set so they make sense with the layout, not according to screen size neccessarily */
 
 .grid {
     display: grid;
