@@ -38,7 +38,7 @@ nav {
 }
 
 .btn {
-  display: none;
+  display: block;
   margin: 0 auto;
   padding: 1em 2em;
   background-color: transparent;
@@ -48,9 +48,6 @@ nav {
 .btn :hover {
   color: rgba(24, 89, 121, 0.9294117647);
   transition: 0.5s;
-}
-.btn.active {
-  display: block;
 }
 
 .grid {
