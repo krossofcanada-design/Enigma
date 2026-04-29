@@ -38,7 +38,11 @@ nav {
     align-content: center;
 }
 
-
+/* These are settings for the tab-function */
+:focus-visible {
+    outline: 4px solid rgb(255, 255, 255);
+    outline-offset: 4px;
+}
 
 
 // stage and answer setup
