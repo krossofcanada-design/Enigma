@@ -1,5 +1,5 @@
 // =========================
-// DOM CONNECTIONS
+// Calling the DOMs
 // =========================
 
 const stages = document.querySelectorAll(".stage");
@@ -12,10 +12,14 @@ const answer4 = document.querySelectorAll(".option4");
 
 
 // ========================
-// FUNCTIONS
+// Flow Chart Logic
 // ========================
 
-/* I undervisningen brugte vi textContent i en switch, som gik efter navnet på knappen, men det blev lidt langhåret for mig, så jeg ledte i chatGPT efter en anden løsning og kom frem til "flow", hvor jeg kunne skrive min flow chart logik og efterfølgende bruge en funktion, som kunne læse og udføre logikken. Det var også vigtigt for mig, at jeg kunne ændre på mit forgreningsscenarie undervejs uden at skulle omskrive alt for meget kode, så flow og brug af data-action i stedet for textContent*/
+/* I undervisningen brugte vi en switch baseret på værdien af textContent, hvor logikken hurtigt blev uoverskuelig i forhold til scenariet. Derfor søgtes en alternativ løsning og der implementeredes en flow-variabel, hvor hvert step er et objekt. En funktion (applyChanges) læser objektet og anvender DOM-manipulation baseret på dets properties (remove, add, resetAll) ved hjælp af conditional checks.
+
+Det var vigtigt for mig at kunne ændre i forgreningsscenariet undervejs uden at skulle omskrive store dele af koden. Derfor viste brugen af "data-action" sig at være et mere fleksibelt valg end "textContent".
+
+Jeg undersøgte også muligheder for at undgå index-numre ved at bruge "data-group" på mine stages, så flowchart-logikken ville blive mere tydelig i javascript. Det ville samtidig have gjort koden lettere at forstå og arbejde videre med for andre, uden at de skulle referere til html eller flowchart. Jeg valgte dog at beholde den nuværende model for ikke at afvige for meget fra undervisningsmaterialet og gøre det unødigt komplekst for mit niveau af javascript. */
 
 const flow = {
 
@@ -23,7 +27,7 @@ const flow = {
   // INTRO (Index 0)
   // =========================
   continue: {
-    remove: { stages: [0], answer1: [0]},
+    remove: { stages: [0], answer1: [0] },
     add: { stages: [1], answer1: [1], answer2: [1], answer3: [1] }
   },
 
@@ -135,9 +139,9 @@ const flow = {
     add: { stages: [19], answer1: [7] }
   },
 
-  // =========================
-  // RESET
-  // =========================
+  // ===============================================================================
+  // RESET: bruges i ENGINE conditional statement til at lave en reset til start
+  // ===============================================================================
   restart: {
     resetAll: true
   }
@@ -145,14 +149,15 @@ const flow = {
 
 
 
-// =======================================================================
-// ENGINE: Adds and removes active states automatically based on classList 
-// =======================================================================
+// =============================================================================================================================
+// ENGINE: Adds and removes active states automatically based on classList, activated through "applyChanges" from event handler.
+// =============================================================================================================================
 
 const applyChanges = (step) => {
   if (!step) return;
 
-  // RESET GAME
+  // Brug af "if..." til at kontrollere reset-logik (se også “initial reset” nederst på siden, da denne reset først træder i kraft efter første gennemløb af spillet). ".forEach" anvendes til at iterere over NodeLists, og "classList" bruges til at tilføje/fjerne aktive klasser.
+
   if (step.resetAll) {
     // Remove ALL active states globally
     document.querySelectorAll(".active").forEach(el => {
@@ -165,6 +170,9 @@ const applyChanges = (step) => {
 
     return;
     }
+
+  
+  // I stedet for switch bruges denne conditional statement for at tilgå klasseelementerne og fjerne/tilføje "active" ifølge flow logikken.
 
   // REMOVE ACTIVE STATES
   if (step.remove) {
@@ -186,9 +194,17 @@ const applyChanges = (step) => {
 };
 
 
-// =========================
+// ===============================================================================================================
 // EVENT HANDLER: When user "clicks", the event listener refers to the event handler with the name "handleClick".
-// =========================
+// ===============================================================================================================
+
+/* handleClick fungerer som event handler og kobles til event listeners på de interaktive elementer. Funktionen anvendes til at initiere engine-funktionen applyChanges.
+
+Variablen "step" defineres dynamisk ud fra "action"-værdien i flow-objektet. Denne "action" hentes fra HTML via data-action attributten gennem e.currentTarget.dataset.
+
+dataset giver adgang til alle data-* attributter på det klikkede HTML-element.
+
+Elementer med klassen "stage" indeholder ikke data-action, da de ikke er direkte interaktive. De indgår i stedet som en del af flowets tilstande og styres indirekte via "step"-objektet i applyChanges-funktionen, som håndterer visning og skjulning af relevante stages og svarmuligheder. */
 
 const handleClick = (e) => {
   const action = e.currentTarget.dataset.action;
@@ -211,6 +227,7 @@ const handleClick = (e) => {
 // EVENT LISTENERS
 // =========================
 
+// Alle knapper samles i én array og får tildelt samme event listener via ".forEach".
 const allButtons = [
   ...answer1,
   ...answer2,
@@ -222,3 +239,8 @@ allButtons.forEach(btn => {
   btn.addEventListener("click", handleClick);
 });
 
+
+// Tilføjede denne, fordi reset logikken ikke virkede ved første render af siden.
+document.addEventListener("DOMContentLoaded", () => {
+  applyChanges({ resetAll: true });
+});
