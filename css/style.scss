@@ -36,7 +36,7 @@ nav {
     z-index: 1000;
     background-color: partial.$bg-color;
     padding-left: 25px;
-    height: 90px;
+    height: 70px;
     
 
     a {
@@ -157,11 +157,11 @@ padding: .8rem 1.6rem;
     display: grid;
     position: relative;
     z-index: 2;
+    transform: translateY(7%);
     grid-template-columns: repeat(7, 1fr);
-    gap: 5px;
+    gap: 15px;
     grid-template-areas:
-    "vector1 . . . . . . "
-    "vector1 lock lock lock key key ."
+    ". lock lock lock key key ."
     "vector2 text text text text text ."
     "vector2 answer1 answer1 answer1 answer1 answer1 ."
     "vector2 answer2 answer2 answer2 answer2 answer2 ."
@@ -172,12 +172,6 @@ padding: .8rem 1.6rem;
 
 }
 
-.vector1 {
-    grid-area: vector1;
-    background-image: url(../img/vector1.png);
-    background-position: center;
-    background-repeat: no-repeat;
-}
 
 .vector2 {
     grid-area: vector2;
@@ -276,6 +270,9 @@ padding: .8rem 1.6rem;
     }
 
     nav {
+
+        height: 90px;
+
         a {
             font-size: 25px;
         }
@@ -284,13 +281,9 @@ padding: .8rem 1.6rem;
     .grid {
         display: grid;
         grid-template-columns: repeat(7, 1fr);
-
-        gap: 1em;
+        transform: translateY(20%);
         grid-template-areas:
-        ". . . . . . ."
-        ". . . . . . ."
-        "vector1 . . . . . ."
-        "vector1 lock lock lock key key ."
+        ". lock lock lock key key ."
         "vector2 text text text text text ."
         "vector2 answer1 answer1 answer1 . . ."
         "vector2 answer2 answer2 answer2 . . ."
@@ -299,79 +292,6 @@ padding: .8rem 1.6rem;
 
         ;
 
-    }
-
-    .vector1 {
-        grid-area: vector1;
-        background-image: url(../img/vector1.png);
-        background-position: center;
-        background-repeat: no-repeat;
-    }
-
-    .lock {
-        grid-area: lock;
-        background-color: partial.$bg-color;
-        background-image: url(../img/Group17.png);
-        background-size: contain;
-        background-position: center;
-        background-repeat: no-repeat;
-
-        @include partial.bg-boxes();
-    }
-
-    .key {
-        grid-area: key;
-        background-color: partial.$bg-color;
-        background-image: url(../img/key.png);
-        background-size: contain;
-        background-position: center;
-        background-repeat: no-repeat;
-        
-        @include partial.bg-boxes();
-    }
-
-    .text {
-        grid-area: text;
-        background-color: partial.$bg-color;
-        color: partial.$text-color;
-        height: fit-content;
-        @include partial.bg-boxes();
-    }
-
-    .answer1 {
-        grid-area: answer1;
-        background-color: partial.$sec-color;
-        color: partial.$text-color;
-        height: fit-content;
-
-        @include partial.bg-boxes($bg-color: partial.$sec-color);
-    }
-
-    .answer2 {
-        grid-area: answer2;
-        background-color: partial.$sec-color;
-        color: partial.$text-color;
-        height: fit-content;
-
-        @include partial.bg-boxes($bg-color: partial.$sec-color);
-    }
-
-    .answer3 {
-        grid-area: answer3;
-        background-color: partial.$sec-color;
-        color: partial.$text-color;
-        height: fit-content;
-
-        @include partial.bg-boxes($bg-color: partial.$sec-color);
-    }
-
-    .answer4 {
-        grid-area: answer4;
-        background-color: partial.$sec-color;
-        color: partial.$text-color;
-        height: fit-content;
-
-        @include partial.bg-boxes($bg-color: partial.$sec-color);
     }
 
 
@@ -397,20 +317,21 @@ padding: .8rem 1.6rem;
     }
 
     nav {
-    a {
+
+        height: 90px;
+
+      a {
         font-size: 30px;
-     }
+      }
     }
 
     .grid {
         display: grid;
         grid-template-columns: repeat(7, 1fr);
+        transform: translateY(20%);
         gap: 2em;
         grid-template-areas:
-        ". . . . . . ."
-        ". . . . . . ."
-        "vector1 . . . . . ."
-        "vector1 lock lock lock key key ."
+        ". lock lock lock key key ."
         "vector2 text text answer1 answer1 . ."
         "vector2 text text answer2 answer2 . ."
         "vector2 text text answer3 answer3 . ."
@@ -418,73 +339,6 @@ padding: .8rem 1.6rem;
         "vector2 . . . . . ."
         ;
 
-    }
-
-
-    .lock {
-        grid-area: lock;
-        background-color: partial.$bg-color;
-        background-image: url(../img/Group17.png);
-        background-size: contain;
-        background-position: center;
-        background-repeat: no-repeat;
-
-        @include partial.bg-boxes();
-    }
-
-    .key {
-        grid-area: key;
-        background-color: partial.$bg-color;
-        background-image: url(../img/key.png);
-        background-size: contain;
-        background-position: center;
-        background-repeat: no-repeat;
-        
-        @include partial.bg-boxes();
-    }
-
-    .text {
-        grid-area: text;
-        background-color: partial.$bg-color;
-        color: partial.$text-color;
-        height: fit-content;
-        @include partial.bg-boxes();
-    }
-
-    .answer1 {
-        grid-area: answer1;
-        background-color: partial.$sec-color;
-        color: partial.$text-color;
-        height: fit-content;
-
-        @include partial.bg-boxes($bg-color: partial.$sec-color);
-    }
-
-    .answer2 {
-        grid-area: answer2;
-        background-color: partial.$sec-color;
-        color: partial.$text-color;
-        height: fit-content;
-
-        @include partial.bg-boxes($bg-color: partial.$sec-color);
-    }
-
-    .answer3 {
-        grid-area: answer3;
-        background-color: partial.$sec-color;
-        color: partial.$text-color;
-        height: fit-content;
-
-        @include partial.bg-boxes($bg-color: partial.$sec-color);
-    }
-
-    .answer4 {
-        grid-area: answer4;
-        background-color: partial.$sec-color;
-        color: partial.$text-color;
-        height: fit-content;
-
-        @include partial.bg-boxes($bg-color: partial.$sec-color);
     }
 
 

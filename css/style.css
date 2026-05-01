@@ -25,7 +25,7 @@ nav {
   z-index: 1000;
   background-color: rgba(24, 89, 121, 0.9294117647);
   padding-left: 25px;
-  height: 90px;
+  height: 70px;
 }
 nav a {
   font-weight: 300;
@@ -150,16 +150,10 @@ nav a {
   display: grid;
   position: relative;
   z-index: 2;
+  transform: translateY(7%);
   grid-template-columns: repeat(7, 1fr);
-  gap: 5px;
-  grid-template-areas: "vector1 . . . . . . " "vector1 lock lock lock key key ." "vector2 text text text text text ." "vector2 answer1 answer1 answer1 answer1 answer1 ." "vector2 answer2 answer2 answer2 answer2 answer2 ." "vector2 answer3 answer3 answer3 answer3 answer3 ." "vector2 answer4 answer4 answer4 answer4 answer4 .";
-}
-
-.vector1 {
-  grid-area: vector1;
-  background-image: url(../img/vector1.png);
-  background-position: center;
-  background-repeat: no-repeat;
+  gap: 15px;
+  grid-template-areas: ". lock lock lock key key ." "vector2 text text text text text ." "vector2 answer1 answer1 answer1 answer1 answer1 ." "vector2 answer2 answer2 answer2 answer2 answer2 ." "vector2 answer3 answer3 answer3 answer3 answer3 ." "vector2 answer4 answer4 answer4 answer4 answer4 .";
 }
 
 .vector2 {
@@ -284,113 +278,17 @@ nav a {
     background-size: contain;
     z-index: 1;
   }
+  nav {
+    height: 90px;
+  }
   nav a {
     font-size: 25px;
   }
   .grid {
     display: grid;
     grid-template-columns: repeat(7, 1fr);
-    gap: 1em;
-    grid-template-areas: ". . . . . . ." ". . . . . . ." "vector1 . . . . . ." "vector1 lock lock lock key key ." "vector2 text text text text text ." "vector2 answer1 answer1 answer1 . . ." "vector2 answer2 answer2 answer2 . . ." "vector2 answer3 answer3 answer3 . . ." "vector2 answer4 answer4 answer4 . . .";
-  }
-  .vector1 {
-    grid-area: vector1;
-    background-image: url(../img/vector1.png);
-    background-position: center;
-    background-repeat: no-repeat;
-  }
-  .lock {
-    grid-area: lock;
-    background-color: rgba(24, 89, 121, 0.9294117647);
-    background-image: url(../img/Group17.png);
-    background-size: contain;
-    background-position: center;
-    background-repeat: no-repeat;
-    color: #ffffff;
-    border-radius: 10px;
-  }
-  .lock:hover {
-    background-color: rgba(24, 89, 121, 0.9294117647);
-    transition: 0.5s;
-  }
-  .key {
-    grid-area: key;
-    background-color: rgba(24, 89, 121, 0.9294117647);
-    background-image: url(../img/key.png);
-    background-size: contain;
-    background-position: center;
-    background-repeat: no-repeat;
-    color: #ffffff;
-    border-radius: 10px;
-  }
-  .key:hover {
-    background-color: rgba(24, 89, 121, 0.9294117647);
-    transition: 0.5s;
-  }
-  .text {
-    grid-area: text;
-    background-color: rgba(24, 89, 121, 0.9294117647);
-    color: #ffffff;
-    height: -moz-fit-content;
-    height: fit-content;
-    color: #ffffff;
-    border-radius: 10px;
-  }
-  .text:hover {
-    background-color: rgba(24, 89, 121, 0.9294117647);
-    transition: 0.5s;
-  }
-  .answer1 {
-    grid-area: answer1;
-    background-color: rgba(0, 186, 207, 0.9294117647);
-    color: #ffffff;
-    height: -moz-fit-content;
-    height: fit-content;
-    color: #ffffff;
-    border-radius: 10px;
-  }
-  .answer1:hover {
-    background-color: rgba(0, 186, 207, 0.9294117647);
-    transition: 0.5s;
-  }
-  .answer2 {
-    grid-area: answer2;
-    background-color: rgba(0, 186, 207, 0.9294117647);
-    color: #ffffff;
-    height: -moz-fit-content;
-    height: fit-content;
-    color: #ffffff;
-    border-radius: 10px;
-  }
-  .answer2:hover {
-    background-color: rgba(0, 186, 207, 0.9294117647);
-    transition: 0.5s;
-  }
-  .answer3 {
-    grid-area: answer3;
-    background-color: rgba(0, 186, 207, 0.9294117647);
-    color: #ffffff;
-    height: -moz-fit-content;
-    height: fit-content;
-    color: #ffffff;
-    border-radius: 10px;
-  }
-  .answer3:hover {
-    background-color: rgba(0, 186, 207, 0.9294117647);
-    transition: 0.5s;
-  }
-  .answer4 {
-    grid-area: answer4;
-    background-color: rgba(0, 186, 207, 0.9294117647);
-    color: #ffffff;
-    height: -moz-fit-content;
-    height: fit-content;
-    color: #ffffff;
-    border-radius: 10px;
-  }
-  .answer4:hover {
-    background-color: rgba(0, 186, 207, 0.9294117647);
-    transition: 0.5s;
+    transform: translateY(20%);
+    grid-template-areas: ". lock lock lock key key ." "vector2 text text text text text ." "vector2 answer1 answer1 answer1 . . ." "vector2 answer2 answer2 answer2 . . ." "vector2 answer3 answer3 answer3 . . ." "vector2 answer4 answer4 answer4 . . .";
   }
 }
 @media (min-width: 1440px) {
@@ -406,106 +304,17 @@ nav a {
     background-size: contain;
     z-index: 1;
   }
+  nav {
+    height: 90px;
+  }
   nav a {
     font-size: 30px;
   }
   .grid {
     display: grid;
     grid-template-columns: repeat(7, 1fr);
+    transform: translateY(20%);
     gap: 2em;
-    grid-template-areas: ". . . . . . ." ". . . . . . ." "vector1 . . . . . ." "vector1 lock lock lock key key ." "vector2 text text answer1 answer1 . ." "vector2 text text answer2 answer2 . ." "vector2 text text answer3 answer3 . ." "vector2 text text answer4 answer4 . ." "vector2 . . . . . .";
-  }
-  .lock {
-    grid-area: lock;
-    background-color: rgba(24, 89, 121, 0.9294117647);
-    background-image: url(../img/Group17.png);
-    background-size: contain;
-    background-position: center;
-    background-repeat: no-repeat;
-    color: #ffffff;
-    border-radius: 10px;
-  }
-  .lock:hover {
-    background-color: rgba(24, 89, 121, 0.9294117647);
-    transition: 0.5s;
-  }
-  .key {
-    grid-area: key;
-    background-color: rgba(24, 89, 121, 0.9294117647);
-    background-image: url(../img/key.png);
-    background-size: contain;
-    background-position: center;
-    background-repeat: no-repeat;
-    color: #ffffff;
-    border-radius: 10px;
-  }
-  .key:hover {
-    background-color: rgba(24, 89, 121, 0.9294117647);
-    transition: 0.5s;
-  }
-  .text {
-    grid-area: text;
-    background-color: rgba(24, 89, 121, 0.9294117647);
-    color: #ffffff;
-    height: -moz-fit-content;
-    height: fit-content;
-    color: #ffffff;
-    border-radius: 10px;
-  }
-  .text:hover {
-    background-color: rgba(24, 89, 121, 0.9294117647);
-    transition: 0.5s;
-  }
-  .answer1 {
-    grid-area: answer1;
-    background-color: rgba(0, 186, 207, 0.9294117647);
-    color: #ffffff;
-    height: -moz-fit-content;
-    height: fit-content;
-    color: #ffffff;
-    border-radius: 10px;
-  }
-  .answer1:hover {
-    background-color: rgba(0, 186, 207, 0.9294117647);
-    transition: 0.5s;
-  }
-  .answer2 {
-    grid-area: answer2;
-    background-color: rgba(0, 186, 207, 0.9294117647);
-    color: #ffffff;
-    height: -moz-fit-content;
-    height: fit-content;
-    color: #ffffff;
-    border-radius: 10px;
-  }
-  .answer2:hover {
-    background-color: rgba(0, 186, 207, 0.9294117647);
-    transition: 0.5s;
-  }
-  .answer3 {
-    grid-area: answer3;
-    background-color: rgba(0, 186, 207, 0.9294117647);
-    color: #ffffff;
-    height: -moz-fit-content;
-    height: fit-content;
-    color: #ffffff;
-    border-radius: 10px;
-  }
-  .answer3:hover {
-    background-color: rgba(0, 186, 207, 0.9294117647);
-    transition: 0.5s;
-  }
-  .answer4 {
-    grid-area: answer4;
-    background-color: rgba(0, 186, 207, 0.9294117647);
-    color: #ffffff;
-    height: -moz-fit-content;
-    height: fit-content;
-    color: #ffffff;
-    border-radius: 10px;
-  }
-  .answer4:hover {
-    background-color: rgba(0, 186, 207, 0.9294117647);
-    transition: 0.5s;
+    grid-template-areas: ". lock lock lock key key ." "vector2 text text answer1 answer1 . ." "vector2 text text answer2 answer2 . ." "vector2 text text answer3 answer3 . ." "vector2 text text answer4 answer4 . ." "vector2 . . . . . .";
   }
 }/*# sourceMappingURL=style.css.map */
