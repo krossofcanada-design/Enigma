@@ -20,7 +20,9 @@ body :hover {
 
 nav {
   display: flex;
+  position: relative;
   justify-content: space-between;
+  z-index: 1000;
   background-color: rgba(24, 89, 121, 0.9294117647);
   padding-left: 25px;
   height: 90px;
@@ -90,6 +92,7 @@ nav a {
 }
 #endSimulationBtn {
   padding: 0 1.6em;
+  z-index: 1001;
 }
 
 .hidden {
@@ -145,8 +148,9 @@ nav a {
 /* ================= Grid and media-query, mobile first. Max and min widths are set so they make sense with the layout, not according to standard screen size ================= */
 .grid {
   display: grid;
+  position: relative;
+  z-index: 2;
   grid-template-columns: repeat(7, 1fr);
-  min-height: 100vh;
   gap: 5px;
   grid-template-areas: "vector1 . . . . . . " "vector1 lock lock lock key key ." "vector2 text text text text text ." "vector2 answer1 answer1 answer1 answer1 answer1 ." "vector2 answer2 answer2 answer2 answer2 answer2 ." "vector2 answer3 answer3 answer3 answer3 answer3 ." "vector2 answer4 answer4 answer4 answer4 answer4 .";
 }
@@ -170,6 +174,7 @@ nav a {
   background-color: rgba(24, 89, 121, 0.9294117647);
   background-image: url(../img/Group17.png);
   background-size: contain;
+  height: 70px;
   background-position: center;
   background-repeat: no-repeat;
   color: #ffffff;
@@ -185,6 +190,7 @@ nav a {
   background-color: rgba(24, 89, 121, 0.9294117647);
   background-image: url(../img/key.png);
   background-size: contain;
+  height: 70px;
   background-position: center;
   background-repeat: no-repeat;
   color: #ffffff;
@@ -265,24 +271,27 @@ nav a {
   transition: 0.5s;
 }
 
-.hashcat {
-  grid-area: hashcat;
-  background-image: url(../img/hashcat.png);
-  -o-object-fit: contain;
-     object-fit: contain;
-  background-repeat: no-repeat;
-}
-
 @media (min-width: 1050px) {
+  .hashcat {
+    position: fixed;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    height: 50%;
+    background-image: url(../img/hashcat.png);
+    background-repeat: no-repeat;
+    background-position: right 10% center;
+    background-size: contain;
+    z-index: 1;
+  }
   nav a {
     font-size: 25px;
   }
   .grid {
     display: grid;
     grid-template-columns: repeat(7, 1fr);
-    min-height: 100vh;
     gap: 1em;
-    grid-template-areas: "vector1 . . . . . ." "vector1 lock lock lock key key ." "vector2 text text text text text ." "vector2 answer1 answer1 answer1 hashcat hashcat hashcat" "vector2 answer2 answer2 answer2 hashcat hashcat hashcat" "vector2 answer3 answer3 answer3 hashcat hashcat hashcat" "vector2 answer4 answer4 answer4 hashcat hashcat hashcat";
+    grid-template-areas: ". . . . . . ." ". . . . . . ." "vector1 . . . . . ." "vector1 lock lock lock key key ." "vector2 text text text text text ." "vector2 answer1 answer1 answer1 . . ." "vector2 answer2 answer2 answer2 . . ." "vector2 answer3 answer3 answer3 . . ." "vector2 answer4 answer4 answer4 . . .";
   }
   .vector1 {
     grid-area: vector1;
@@ -383,24 +392,28 @@ nav a {
     background-color: rgba(0, 186, 207, 0.9294117647);
     transition: 0.5s;
   }
-  .hashcat {
-    grid-area: hashcat;
-    background-image: url(../img/hashcat.png);
-    -o-object-fit: contain;
-       object-fit: contain;
-    background-repeat: no-repeat;
-  }
 }
 @media (min-width: 1440px) {
+  .hashcat {
+    position: fixed;
+    top: 35%;
+    left: 10%;
+    width: 100%;
+    height: 60%;
+    background-image: url(../img/hashcat.png);
+    background-repeat: no-repeat;
+    background-position: right 10% center;
+    background-size: contain;
+    z-index: 1;
+  }
   nav a {
     font-size: 30px;
   }
   .grid {
     display: grid;
     grid-template-columns: repeat(7, 1fr);
-    min-height: 100vh;
     gap: 2em;
-    grid-template-areas: "vector1 . . . . . ." "vector1 lock lock lock key key ." "vector2 text text answer1 answer1 hashcat hashcat" "vector2 text text answer2 answer2 hashcat hashcat" "vector2 text text answer3 answer3 hashcat hashcat" "vector2 text text answer4 answer4 hashcat hashcat" "vector2 . . . . hashcat hashcat";
+    grid-template-areas: ". . . . . . ." ". . . . . . ." "vector1 . . . . . ." "vector1 lock lock lock key key ." "vector2 text text answer1 answer1 . ." "vector2 text text answer2 answer2 . ." "vector2 text text answer3 answer3 . ." "vector2 text text answer4 answer4 . ." "vector2 . . . . . .";
   }
   .lock {
     grid-area: lock;
@@ -494,12 +507,5 @@ nav a {
   .answer4:hover {
     background-color: rgba(0, 186, 207, 0.9294117647);
     transition: 0.5s;
-  }
-  .hashcat {
-    grid-area: hashcat;
-    background-image: url(../img/hashcat.png);
-    -o-object-fit: contain;
-       object-fit: contain;
-    background-repeat: no-repeat;
   }
 }/*# sourceMappingURL=style.css.map */

@@ -31,7 +31,9 @@ body {
 
 nav {
     display: flex;
+    position: relative;
     justify-content: space-between;
+    z-index: 1000;
     background-color: partial.$bg-color;
     padding-left: 25px;
     height: 90px;
@@ -51,6 +53,8 @@ nav {
     outline: 4px solid rgb(255, 255, 255);
     outline-offset: 4px;
 }
+
+
 
 
 // stage and answer setup
@@ -97,6 +101,7 @@ nav {
 #endSimulationBtn {
     @include partial.simulation-btns ();
     padding: 0 1.6em;
+    z-index: 1001;
 
 }
 
@@ -147,10 +152,12 @@ padding: .8rem 1.6rem;
 
 /* ================= Grid and media-query, mobile first. Max and min widths are set so they make sense with the layout, not according to standard screen size ================= */
 
+
 .grid {
     display: grid;
+    position: relative;
+    z-index: 2;
     grid-template-columns: repeat(7, 1fr);
-    min-height: 100vh;
     gap: 5px;
     grid-template-areas:
     "vector1 . . . . . . "
@@ -185,6 +192,7 @@ padding: .8rem 1.6rem;
     background-color: partial.$bg-color;
     background-image: url(../img/Group17.png);
     background-size: contain;
+    height: 70px;
     background-position: center;
     background-repeat: no-repeat;
 
@@ -196,6 +204,7 @@ padding: .8rem 1.6rem;
     background-color: partial.$bg-color;
     background-image: url(../img/key.png);
     background-size: contain;
+    height: 70px;
     background-position: center;
     background-repeat: no-repeat;
     
@@ -246,17 +255,25 @@ padding: .8rem 1.6rem;
     @include partial.bg-boxes($bg-color: partial.$sec-color);
 }
 
-.hashcat {
-    grid-area: hashcat;
-    background-image: url(../img/hashcat.png);
-    object-fit: contain;
-    background-repeat: no-repeat;
 
-}
 
 // ==================== MIDDLE SIZE ==================================
 
 @media (min-width: 1050px) {
+
+
+    .hashcat {
+        position: fixed;
+        top: 50%;
+        left: 0;
+        width: 100%;
+        height: 50%;
+        background-image: url(../img/hashcat.png);
+        background-repeat: no-repeat;
+        background-position: right 10% center;
+        background-size: contain;
+        z-index: 1;
+    }
 
     nav {
         a {
@@ -267,16 +284,18 @@ padding: .8rem 1.6rem;
     .grid {
         display: grid;
         grid-template-columns: repeat(7, 1fr);
-        min-height: 100vh;
+
         gap: 1em;
         grid-template-areas:
+        ". . . . . . ."
+        ". . . . . . ."
         "vector1 . . . . . ."
         "vector1 lock lock lock key key ."
         "vector2 text text text text text ."
-        "vector2 answer1 answer1 answer1 hashcat hashcat hashcat"
-        "vector2 answer2 answer2 answer2 hashcat hashcat hashcat"
-        "vector2 answer3 answer3 answer3 hashcat hashcat hashcat"
-        "vector2 answer4 answer4 answer4 hashcat hashcat hashcat"
+        "vector2 answer1 answer1 answer1 . . ."
+        "vector2 answer2 answer2 answer2 . . ."
+        "vector2 answer3 answer3 answer3 . . ."
+        "vector2 answer4 answer4 answer4 . . ."
 
         ;
 
@@ -355,13 +374,6 @@ padding: .8rem 1.6rem;
         @include partial.bg-boxes($bg-color: partial.$sec-color);
     }
 
-    .hashcat {
-        grid-area: hashcat;
-        background-image: url(../img/hashcat.png);
-        object-fit: contain;
-        background-repeat: no-repeat;
-
-    }
 
 }
 
@@ -370,6 +382,19 @@ padding: .8rem 1.6rem;
 
 
 @media (min-width: 1440px) {
+
+    .hashcat {
+        position: fixed;
+        top: 35%;
+        left: 10%;
+        width: 100%;
+        height: 60%;
+        background-image: url(../img/hashcat.png);
+        background-repeat: no-repeat;
+        background-position: right 10% center;
+        background-size: contain;
+        z-index: 1;
+    }
 
     nav {
     a {
@@ -380,16 +405,17 @@ padding: .8rem 1.6rem;
     .grid {
         display: grid;
         grid-template-columns: repeat(7, 1fr);
-        min-height: 100vh;
         gap: 2em;
         grid-template-areas:
+        ". . . . . . ."
+        ". . . . . . ."
         "vector1 . . . . . ."
         "vector1 lock lock lock key key ."
-        "vector2 text text answer1 answer1 hashcat hashcat"
-        "vector2 text text answer2 answer2 hashcat hashcat"
-        "vector2 text text answer3 answer3 hashcat hashcat"
-        "vector2 text text answer4 answer4 hashcat hashcat"
-        "vector2 . . . . hashcat hashcat"
+        "vector2 text text answer1 answer1 . ."
+        "vector2 text text answer2 answer2 . ."
+        "vector2 text text answer3 answer3 . ."
+        "vector2 text text answer4 answer4 . ."
+        "vector2 . . . . . ."
         ;
 
     }
@@ -461,12 +487,7 @@ padding: .8rem 1.6rem;
         @include partial.bg-boxes($bg-color: partial.$sec-color);
     }
 
-    .hashcat {
-        grid-area: hashcat;
-        background-image: url(../img/hashcat.png);
-        object-fit: contain;
-        background-repeat: no-repeat;
-
-    }
 
 }
+
+
