@@ -96,6 +96,11 @@ nav {
 }
 
 
+
+.hashcat {
+  display: none;
+}
+
 // "End simulation" info box
 
 #endSimulationBtn {
@@ -257,17 +262,30 @@ padding: .8rem 1.6rem;
 
 
     .hashcat {
+        display: block;
         position: fixed;
         top: 50%;
         left: 0;
         width: 100%;
         height: 50%;
-        background-image: url(../img/hashcat.png);
         background-repeat: no-repeat;
         background-position: right 10% center;
         background-size: contain;
         z-index: 1;
+
+    
     }
+
+    // Normal eyes
+    .hashcat.state-1 {
+    background-image: url(../img/hashcat.png);
+    }
+
+    // Glowing eyes
+    .hashcat.state-2 {
+    background-image: url(../img/eyeGlow.png);
+    }
+
 
     nav {
 
@@ -304,16 +322,27 @@ padding: .8rem 1.6rem;
 @media (min-width: 1440px) {
 
     .hashcat {
+        display: block;
         position: fixed;
         top: 35%;
         left: 10%;
         width: 100%;
         height: 60%;
-        background-image: url(../img/hashcat.png);
         background-repeat: no-repeat;
         background-position: right 10% center;
         background-size: contain;
         z-index: 1;
+
+    }
+
+    // Normal eyes
+    .hashcat.state-1 {
+    background-image: url(../img/hashcat.png);
+    }
+
+    // Glowing eyes
+    .hashcat.state-2 {
+    background-image: url(../img/eyeGlow.png);
     }
 
     nav {
@@ -338,6 +367,10 @@ padding: .8rem 1.6rem;
         "vector2 text text answer4 answer4 . ."
         "vector2 . . . . . ."
         ;
+
+        p {
+            font-size: 20px;
+        }
 
     }
 

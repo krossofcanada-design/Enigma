@@ -9,6 +9,9 @@ const answer2 = document.querySelectorAll(".option2");
 const answer3 = document.querySelectorAll(".option3");
 const answer4 = document.querySelectorAll(".option4");
 
+const hashcat = document.querySelector(".hashcat");
+const specialStages = [9, 11, 14, 17, 18, 19];
+
 const endBtn = document.getElementById("endSimulationBtn");
 const overlay = document.getElementById("overlay");
 const overlayRestart = document.getElementById("restartFromOverlay");
@@ -170,6 +173,19 @@ const flow = {
 
 
 
+function updateHashcatState() {
+  if (!hashcat) return;
+
+  const isSpecialActive = specialStages.some(i =>
+    stages[i]?.classList.contains("active")
+  );
+
+  hashcat.classList.remove("state-1", "state-2");
+  hashcat.classList.add(isSpecialActive ? "state-2" : "state-1");
+}
+
+
+
 // =============================================================================================================================
 // ENGINE: Adds and removes active states automatically based on classList, activated through "applyChanges" from event handler.
 // =============================================================================================================================
@@ -188,7 +204,8 @@ const applyChanges = (step) => {
     answer1[0].classList.add("active");
 
     endBtn.classList.add("hidden");
-
+    
+    updateHashcatState();
     return;
   }
 
@@ -215,6 +232,7 @@ const applyChanges = (step) => {
 
   if (step.end) endBtn.classList.remove("hidden");
 
+  updateHashcatState();
 
 };
 

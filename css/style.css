@@ -76,6 +76,10 @@ nav a {
   display: block;
 }
 
+.hashcat {
+  display: none;
+}
+
 #endSimulationBtn {
   font-family: "Intel One Mono", monospace;
   color: rgba(24, 89, 121, 0.9294117647);
@@ -267,16 +271,22 @@ nav a {
 
 @media (min-width: 1050px) {
   .hashcat {
+    display: block;
     position: fixed;
     top: 50%;
     left: 0;
     width: 100%;
     height: 50%;
-    background-image: url(../img/hashcat.png);
     background-repeat: no-repeat;
     background-position: right 10% center;
     background-size: contain;
     z-index: 1;
+  }
+  .hashcat.state-1 {
+    background-image: url(../img/hashcat.png);
+  }
+  .hashcat.state-2 {
+    background-image: url(../img/eyeGlow.png);
   }
   nav {
     height: 90px;
@@ -293,16 +303,22 @@ nav a {
 }
 @media (min-width: 1440px) {
   .hashcat {
+    display: block;
     position: fixed;
     top: 35%;
     left: 10%;
     width: 100%;
     height: 60%;
-    background-image: url(../img/hashcat.png);
     background-repeat: no-repeat;
     background-position: right 10% center;
     background-size: contain;
     z-index: 1;
+  }
+  .hashcat.state-1 {
+    background-image: url(../img/hashcat.png);
+  }
+  .hashcat.state-2 {
+    background-image: url(../img/eyeGlow.png);
   }
   nav {
     height: 90px;
@@ -316,5 +332,8 @@ nav a {
     transform: translateY(20%);
     gap: 2em;
     grid-template-areas: ". lock lock lock key key ." "vector2 text text answer1 answer1 . ." "vector2 text text answer2 answer2 . ." "vector2 text text answer3 answer3 . ." "vector2 text text answer4 answer4 . ." "vector2 . . . . . .";
+  }
+  .grid p {
+    font-size: 20px;
   }
 }/*# sourceMappingURL=style.css.map */
