@@ -5,29 +5,33 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>ENIGMA</title>
 
+            <!-- Link to fontawesome, so we can use their icons. Placed BEFORE link to style sheet because fontawesome uses classes to address styling in css and could otherwise be overwritten -->
+            <script src="https://kit.fontawesome.com/aa47f20784.js" crossorigin="anonymous"></script>
+
         <link rel="stylesheet" href="css/style.css">
         
         <script src="js/script.js" defer></script>
 
-        <!-- Link to fontawesome, so we can use their icons -->
-        <script src="https://kit.fontawesome.com/aa47f20784.js" crossorigin="anonymous"></script>
 
-        <!-- Link to Google Fonts -->
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Intel+One+Mono:ital,wght@0,300..700;1,300..700&display=swap" rel="stylesheet">
+            <!-- Link to Google Fonts -->
+            <link rel="preconnect" href="https://fonts.googleapis.com">
+            <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+            <link href="https://fonts.googleapis.com/css2?family=Intel+One+Mono:ital,wght@0,300..700;1,300..700&display=swap" rel="stylesheet">
 
     </head>
 
     <body>
 
         <nav>
-            <a href="index.html">EN1GM4_</a>               
+            <a href="index.html">EN1GM4_</a>
+
+            <button id="endSimulationBtn" class="hidden">
+            End Simulation_
+            </button>             
         </nav>
         
         <div class="grid">    
         
-            <div class="eye"></div>
             <div class="vector1"></div>
             <div class="vector2"></div>
             <div class="lock"></div>
@@ -36,14 +40,14 @@
             <div class="text">
                 <!-- Stage intro, index 0 -->
                 <section class="stage active">
-                  <p>In this simulation, you step into the role of an attacker targeting business academy students' accounts. Explore how small security weaknesses can be exploited, and discover how they can be prevented. Click continue button below.</p>
+                  <p>In this simulation, you step into the role of a hacker targeting business academy students' accounts. Explore how small security weaknesses can be exploited, and discover how they can be prevented. Click "Continue_" button.</p>
                 </section>
 
                 <!-- Stage 1 -->
                 <section class="stage">
-                  <p>It is September, and several new students are still insecure about how to navigate the many platforms associated with the academy. <br>
+                  <p>It is September, and several new students are still insecure about how to navigate the many platforms associated with the academy. <br><br>
 
-                  You have access to general information on the academy's home page and you also have the students' full names.  </p>
+                  You have access to general information on the academy's home page and you also have the students' full names.</p>
                 </section>
 
                 <!-- Stage 2 -->
@@ -53,32 +57,32 @@
 
                 <!-- Stage 3 -->
                 <section class="stage">
-                  <p>You inquire about your schedule and upcoming exam dates, and explain that there's a problem with your login and IT support  is working on it. The teacher, having seen many real-life cases like this, gives you an excel sheet with schedule of the student and the upcoming exam date which is in 2 weeks.</p>
+                  <p>You inquire about your schedule and upcoming exam dates, and explain that there's a problem with your login and IT support is working on it. The teacher, having seen many real-life cases like this, gives you an excel sheet with the schedule of the student and the upcoming exam date which is in 2 weeks.</p>
                 </section>
 
                 <!-- Stage 4 -->
                 <section class="stage">
-                  <p>You found personal information on many of the students -- their full birthdays, addresses, family, pets,  friends and even habits among other things.</p>
+                  <p>You found personal information on many of the students -- their full birthdays, addresses, family, pets, friends and even habits among other things.</p>
                 </section>
  
                 <!-- Stage 5 -->
                 <section class="stage">
-                  <p>Brute force attack is a powerful tool that uncovers passwords systematically. To see how efficient  your attack is, choose a password from the list.</p>
+                  <p>Brute force attack is a powerful tool that uncovers passwords systematically. To see how efficient your attack is, choose a password from the list.</p>
                 </section>
 
                 <!-- Stage 6 -->
                 <section class="stage">
-                  <p>You use common pass phrases, password dictionaries, and leaked password lists. If you have personal information, the attack could be even more efficient. To see how efficient your attack is, choose a password from the list. </p>
+                  <p>You use password dictionaries, leaked password lists, and common pass phrases. If you have personal information as well, the attack could be even more efficient. To see how efficient your attack is, choose a password from the list. </p>
                 </section>
 
                 <!-- Stage 7 -->
                 <section class="stage">
-                  <p>The student inquires other students if they're going, and chat about it in class. A teacher notices the chat and is not aware of the event. She asks the students to confirm with school and also inquires about the event herself. The scam is soon discovered, and you need to reevaluate how to proceed as IT is now aware of an active attack.</p>
+                  <p>The student inquires other students if they're going, and chat about it in class. A teacher notices the chat and is not aware of the event. She asks the students to confirm with the school, and also inquires about the event herself. The scam is soon discovered, and you need to reevaluate how to proceed as IT is now aware of an active attack.</p>
                 </section>
 
                 <!-- Stage 8 -->
                 <section class="stage">
-                  <p>The students are pressed on time due to their exam, but is suspicious about an update coming just before the exam, and inquires IT about it. They confirm it's a cyber attack, and will investigate the case further. You have put yourself at high risk of being caught.</p>
+                  <p>The students are pressed on time due to their exam, but are suspicious about an update coming just before the exam, and inquire IT about it. They confirm it's a cyber attack, and will investigate the case further. You have put yourself at high risk of being caught.</p>
                 </section>
 
                 <!-- Stage 9 -->
@@ -97,7 +101,7 @@
 
                      You create a fake Bogbasen link which you attach to the messages.<br>
 
-                     The student follows it and is asked to sign in to Bogbasen, create an account or connect through their existing google mail. It's easiest to connect through their existing email, and you have successfully obtained their private email and password. 
+                     The student follows it and is asked to sign in to Bogbasen, create an account or connect through their existing google mail. It's easier to connect through their existing email, and you have successfully obtained their private email and password. 
 
                   </p>
                 </section>
@@ -114,17 +118,17 @@
 
                 <!-- Stage 14 -->
                 <section class="stage">
-                  <p>If the system the school is using has no additional protection, you would crack a password like this in minutes. Even with salting, a system feature adding random bits of data to the existing password, the attack would highly efficient and even faster with a dictionary attack.</p>
+                  <p>If the system the school is using has no additional protection, you would crack a password like this in minutes. Even with salting, a system feature adding random bits of data to the existing password, the attack would be highly efficient and even faster with a dictionary attack.</p>
                 </section>
 
                 <!-- Stage 15 -->
                 <section class="stage">
-                  <p>This student's password is pulled from a movie quote, and even though a brute force attack would eventually crack it, a much faster approach would be to launch a dictionary attack containing common pass phrases. </p>
+                  <p>This student's password is pulled from a popular 19th century nursery rhyme "What are little boys made of?", and even though a brute force attack would eventually crack it, a much faster approach would be to launch a dictionary attack containing common pass phrases.</p>
                 </section>
 
                 <!-- Stage 16 -->
                 <section class="stage">
-                  <p>A strong password like this is close to impossible to crack with a common dictionary attack. What makes it strong is the randomness of words used, not the special characters as they're widely known substitutions accounted for by most password cracking systems like Hashcat.</p>
+                  <p>A strong password like this is close to impossible to crack with a common dictionary attack. What makes it strong is the randomness of words used, not neccesarily the special characters as they're widely known substitutions accounted for by most password cracking systems like Hashcat.</p>
                 </section>
 
                 <!-- Stage 17 -->
@@ -139,7 +143,7 @@
 
                 <!-- Stage 19 -->
                 <section class="stage">
-                  <p>This student's password is pulled from a movie quote. Even though an unusual quote, your dictionary attack could be effective at uncovering the password.</p>
+                  <p>This student's password is pulled from a popular 19th century nursery rhyme "What are little boys made of?", and has been used in song lyrics as well as movies. Your dictionary attack would be effective at uncovering the password.</p>
                 </section>
 
 
@@ -153,12 +157,12 @@
 
                 <!-- Stage 1 -->
                 <button class="option1" data-action="hackerTools">
-                  <p>1) You make use of known hacker tools_</p>
+                  <p>1) As a hacker, you have several tools at your disposal, you make use of one of them_</p>
                 </button>
 
                 <!-- Stage 2 -->
                 <button class="option1" data-action="bruteForce">
-                  <p>1) Use brute force attack_</p>
+                  <p>1) Use a brute force attack_</p>
                 </button>
 
                 <!-- Stage 3 -->
@@ -202,7 +206,7 @@
 
                 <!-- Stage 2 -->
                 <button class="option2" data-action="dictionaryAttack">
-                  <p>2) Use common dictionary attack_</p>
+                  <p>2) Use a common dictionary attack_</p>
                 </button>
 
                 <!-- Stage 3 -->
@@ -246,11 +250,12 @@
 
                 <!-- Stage 3 -->
                 <button class="option3" data-action="fakeTeacherReset">
-                  <p>3) You pretend to be the teacher and send out a corrupted link to all to reset the students' password for a program used in class before the upcoming exam_</p>
+                  <p>3) You pretend to be the teacher and send out a corrupted link to all students to reset the the password for a program used in class before the upcoming exam_</p>
                 </button>
 
-                <button class="option3">
-                  <p></p>
+                <!-- Stage 4 -->
+                <button class="option3" data-action="dictionaryStage4">
+                  <p>3) Use common dictionary attack_</p>
                 </button>
 
                 <!-- Stage 5 -->
@@ -309,5 +314,23 @@
             <div class="hashcat"></div>
 
         </div>
+
+        <div id="overlay" class="overlay hidden">
+          <div class="overlay-box">
+            <p>
+              This simulation demonstrated how small security mistakes can be exploited.
+              This simulation demonstrated how small security mistakes can be exploited.
+              This simulation demonstrated how small security mistakes can be exploited.
+              This simulation demonstrated how small security mistakes can be exploited.
+              This simulation demonstrated how small security mistakes can be exploited.
+            </p>
+
+            <button id="restartFromOverlay">
+              Restart Simulation_
+            </button>
+          </div>
+        </div>
+
     </body>
+
 </html>

@@ -7,23 +7,29 @@ body {
   background-image: url(../img/Motherboard.jpg);
   background-repeat: no-repeat;
   background-position: top;
+  cursor: crosshair;
 }
 body p {
-  font-size: 18px;
+  font-size: 16px;
   color: #ffffff;
   line-height: 1.5;
 }
-body a {
-  font-weight: 300;
-  font-size: 30px;
-  color: #ffffff;
-  text-decoration: none;
+body :hover {
+  cursor: crosshair;
 }
 
 nav {
+  display: flex;
+  justify-content: space-between;
   background-color: rgba(24, 89, 121, 0.9294117647);
   padding-left: 25px;
   height: 90px;
+}
+nav a {
+  font-weight: 300;
+  font-size: 20px;
+  color: #ffffff;
+  text-decoration: none;
   align-content: center;
 }
 
@@ -36,7 +42,7 @@ nav {
 .stage {
   display: none;
   margin: 0 auto;
-  padding: 3em;
+  padding: 2em;
   line-height: 1.5;
 }
 .stage.active {
@@ -51,7 +57,7 @@ nav {
   margin: 0 auto;
   background-color: transparent;
   border: none;
-  padding: 1em 2em;
+  padding: 1em 1.4em;
   font-family: "Intel One Mono", monospace;
 }
 .option1 :hover,
@@ -68,13 +74,81 @@ nav {
   display: block;
 }
 
-/* Grid and media-query, mobile first. Max and min widths are set so they make sense with the layout, not according to screen size neccessarily */
+#endSimulationBtn {
+  font-family: "Intel One Mono", monospace;
+  color: rgba(24, 89, 121, 0.9294117647);
+  font-size: 16px;
+  margin: 1em;
+  border: none;
+  border-radius: 5px;
+  background-color: rgba(0, 186, 207, 0.9294117647);
+}
+#endSimulationBtn:hover {
+  background-color: rgba(24, 89, 121, 0.9294117647);
+  color: #ffffff;
+  transition: 0.5s;
+}
+#endSimulationBtn {
+  padding: 0 1.6em;
+}
+
+.hidden {
+  display: none;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.overlay.hidden {
+  display: none;
+}
+
+.overlay-box {
+  background: rgba(255, 255, 255, 0.967);
+  padding: 2rem;
+  border-radius: 8px;
+  max-width: 400px;
+  text-align: center;
+}
+.overlay-box p {
+  color: rgba(24, 89, 121, 0.9294117647);
+}
+
+#restartFromOverlay {
+  font-family: "Intel One Mono", monospace;
+  color: rgba(24, 89, 121, 0.9294117647);
+  font-size: 16px;
+  margin: 1em;
+  border: none;
+  border-radius: 5px;
+  background-color: rgba(0, 186, 207, 0.9294117647);
+}
+#restartFromOverlay:hover {
+  background-color: rgba(24, 89, 121, 0.9294117647);
+  color: #ffffff;
+  transition: 0.5s;
+}
+#restartFromOverlay {
+  padding: 0.8rem 1.6rem;
+}
+
+/* ================= Grid and media-query, mobile first. Max and min widths are set so they make sense with the layout, not according to standard screen size ================= */
 .grid {
   display: grid;
   grid-template-columns: repeat(7, 1fr);
   min-height: 100vh;
-  gap: 1em;
-  grid-template-areas: "vector1 . . . . eye eye" "vector1 lock lock lock key key ." "vector2 text text text text text ." "vector2 answer1 answer1 answer1 answer1 answer1 ." "vector2 answer2 answer2 answer2 answer2 answer2 ." "vector2 answer3 answer3 answer3 answer3 answer3 ." "vector2 answer4 answer4 answer4 answer4 answer4 .";
+  gap: 5px;
+  grid-template-areas: "vector1 . . . . . . " "vector1 lock lock lock key key ." "vector2 text text text text text ." "vector2 answer1 answer1 answer1 answer1 answer1 ." "vector2 answer2 answer2 answer2 answer2 answer2 ." "vector2 answer3 answer3 answer3 answer3 answer3 ." "vector2 answer4 answer4 answer4 answer4 answer4 .";
 }
 
 .vector1 {
@@ -91,15 +165,6 @@ nav {
   background-repeat: no-repeat;
 }
 
-.eye {
-  grid-area: eye;
-  background-image: url(../img/eye.png);
-  transform: translateY(-50px);
-  background-size: contain;
-  background-position: right;
-  background-repeat: no-repeat;
-}
-
 .lock {
   grid-area: lock;
   background-color: rgba(24, 89, 121, 0.9294117647);
@@ -107,7 +172,12 @@ nav {
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
+  color: #ffffff;
   border-radius: 10px;
+}
+.lock:hover {
+  background-color: rgba(24, 89, 121, 0.9294117647);
+  transition: 0.5s;
 }
 
 .key {
@@ -117,7 +187,12 @@ nav {
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
+  color: #ffffff;
   border-radius: 10px;
+}
+.key:hover {
+  background-color: rgba(24, 89, 121, 0.9294117647);
+  transition: 0.5s;
 }
 
 .text {
@@ -126,7 +201,12 @@ nav {
   color: #ffffff;
   height: -moz-fit-content;
   height: fit-content;
+  color: #ffffff;
   border-radius: 10px;
+}
+.text:hover {
+  background-color: rgba(24, 89, 121, 0.9294117647);
+  transition: 0.5s;
 }
 
 .answer1 {
@@ -135,7 +215,12 @@ nav {
   color: #ffffff;
   height: -moz-fit-content;
   height: fit-content;
+  color: #ffffff;
   border-radius: 10px;
+}
+.answer1:hover {
+  background-color: rgba(0, 186, 207, 0.9294117647);
+  transition: 0.5s;
 }
 
 .answer2 {
@@ -144,7 +229,12 @@ nav {
   color: #ffffff;
   height: -moz-fit-content;
   height: fit-content;
+  color: #ffffff;
   border-radius: 10px;
+}
+.answer2:hover {
+  background-color: rgba(0, 186, 207, 0.9294117647);
+  transition: 0.5s;
 }
 
 .answer3 {
@@ -153,7 +243,12 @@ nav {
   color: #ffffff;
   height: -moz-fit-content;
   height: fit-content;
+  color: #ffffff;
   border-radius: 10px;
+}
+.answer3:hover {
+  background-color: rgba(0, 186, 207, 0.9294117647);
+  transition: 0.5s;
 }
 
 .answer4 {
@@ -162,7 +257,12 @@ nav {
   color: #ffffff;
   height: -moz-fit-content;
   height: fit-content;
+  color: #ffffff;
   border-radius: 10px;
+}
+.answer4:hover {
+  background-color: rgba(0, 186, 207, 0.9294117647);
+  transition: 0.5s;
 }
 
 .hashcat {
@@ -174,24 +274,19 @@ nav {
 }
 
 @media (min-width: 1050px) {
+  nav a {
+    font-size: 25px;
+  }
   .grid {
     display: grid;
     grid-template-columns: repeat(7, 1fr);
     min-height: 100vh;
     gap: 1em;
-    grid-template-areas: "vector1 . . . . . eye" "vector1 lock lock lock key key eye" "vector2 text text text text text ." "vector2 answer1 answer1 answer1 hashcat hashcat hashcat" "vector2 answer2 answer2 answer2 hashcat hashcat hashcat" "vector2 answer3 answer3 answer3 hashcat hashcat hashcat" "vector2 answer4 answer4 answer4 hashcat hashcat hashcat";
+    grid-template-areas: "vector1 . . . . . ." "vector1 lock lock lock key key ." "vector2 text text text text text ." "vector2 answer1 answer1 answer1 hashcat hashcat hashcat" "vector2 answer2 answer2 answer2 hashcat hashcat hashcat" "vector2 answer3 answer3 answer3 hashcat hashcat hashcat" "vector2 answer4 answer4 answer4 hashcat hashcat hashcat";
   }
   .vector1 {
     grid-area: vector1;
     background-image: url(../img/vector1.png);
-    background-position: center;
-    background-repeat: no-repeat;
-  }
-  .eye {
-    grid-area: eye;
-    background-image: url(../img/eye.png);
-    transform: translateY(-110px);
-    background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
   }
@@ -202,7 +297,12 @@ nav {
     background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
+    color: #ffffff;
     border-radius: 10px;
+  }
+  .lock:hover {
+    background-color: rgba(24, 89, 121, 0.9294117647);
+    transition: 0.5s;
   }
   .key {
     grid-area: key;
@@ -211,7 +311,12 @@ nav {
     background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
+    color: #ffffff;
     border-radius: 10px;
+  }
+  .key:hover {
+    background-color: rgba(24, 89, 121, 0.9294117647);
+    transition: 0.5s;
   }
   .text {
     grid-area: text;
@@ -219,7 +324,12 @@ nav {
     color: #ffffff;
     height: -moz-fit-content;
     height: fit-content;
+    color: #ffffff;
     border-radius: 10px;
+  }
+  .text:hover {
+    background-color: rgba(24, 89, 121, 0.9294117647);
+    transition: 0.5s;
   }
   .answer1 {
     grid-area: answer1;
@@ -227,7 +337,12 @@ nav {
     color: #ffffff;
     height: -moz-fit-content;
     height: fit-content;
+    color: #ffffff;
     border-radius: 10px;
+  }
+  .answer1:hover {
+    background-color: rgba(0, 186, 207, 0.9294117647);
+    transition: 0.5s;
   }
   .answer2 {
     grid-area: answer2;
@@ -235,7 +350,12 @@ nav {
     color: #ffffff;
     height: -moz-fit-content;
     height: fit-content;
+    color: #ffffff;
     border-radius: 10px;
+  }
+  .answer2:hover {
+    background-color: rgba(0, 186, 207, 0.9294117647);
+    transition: 0.5s;
   }
   .answer3 {
     grid-area: answer3;
@@ -243,7 +363,12 @@ nav {
     color: #ffffff;
     height: -moz-fit-content;
     height: fit-content;
+    color: #ffffff;
     border-radius: 10px;
+  }
+  .answer3:hover {
+    background-color: rgba(0, 186, 207, 0.9294117647);
+    transition: 0.5s;
   }
   .answer4 {
     grid-area: answer4;
@@ -251,7 +376,12 @@ nav {
     color: #ffffff;
     height: -moz-fit-content;
     height: fit-content;
+    color: #ffffff;
     border-radius: 10px;
+  }
+  .answer4:hover {
+    background-color: rgba(0, 186, 207, 0.9294117647);
+    transition: 0.5s;
   }
   .hashcat {
     grid-area: hashcat;
@@ -262,26 +392,15 @@ nav {
   }
 }
 @media (min-width: 1440px) {
+  nav a {
+    font-size: 30px;
+  }
   .grid {
     display: grid;
     grid-template-columns: repeat(7, 1fr);
     min-height: 100vh;
     gap: 2em;
-    grid-template-areas: "vector1 . . . . . eye" "vector1 lock lock lock key key eye" "vector2 text text answer1 answer1 hashcat hashcat" "vector2 text text answer2 answer2 hashcat hashcat" "vector2 text text answer3 answer3 hashcat hashcat" "vector2 text text answer4 answer4 hashcat hashcat" "vector2 . . . . hashcat hashcat";
-  }
-  .vector1 {
-    grid-area: vector1;
-    background-image: url(../img/vector1.png);
-    background-position: center;
-    background-repeat: no-repeat;
-  }
-  .eye {
-    grid-area: eye;
-    background-image: url(../img/eye.png);
-    transform: translateY(-100px);
-    background-size: contain;
-    background-position: center;
-    background-repeat: no-repeat;
+    grid-template-areas: "vector1 . . . . . ." "vector1 lock lock lock key key ." "vector2 text text answer1 answer1 hashcat hashcat" "vector2 text text answer2 answer2 hashcat hashcat" "vector2 text text answer3 answer3 hashcat hashcat" "vector2 text text answer4 answer4 hashcat hashcat" "vector2 . . . . hashcat hashcat";
   }
   .lock {
     grid-area: lock;
@@ -290,7 +409,12 @@ nav {
     background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
+    color: #ffffff;
     border-radius: 10px;
+  }
+  .lock:hover {
+    background-color: rgba(24, 89, 121, 0.9294117647);
+    transition: 0.5s;
   }
   .key {
     grid-area: key;
@@ -299,7 +423,12 @@ nav {
     background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
+    color: #ffffff;
     border-radius: 10px;
+  }
+  .key:hover {
+    background-color: rgba(24, 89, 121, 0.9294117647);
+    transition: 0.5s;
   }
   .text {
     grid-area: text;
@@ -307,7 +436,12 @@ nav {
     color: #ffffff;
     height: -moz-fit-content;
     height: fit-content;
+    color: #ffffff;
     border-radius: 10px;
+  }
+  .text:hover {
+    background-color: rgba(24, 89, 121, 0.9294117647);
+    transition: 0.5s;
   }
   .answer1 {
     grid-area: answer1;
@@ -315,7 +449,12 @@ nav {
     color: #ffffff;
     height: -moz-fit-content;
     height: fit-content;
+    color: #ffffff;
     border-radius: 10px;
+  }
+  .answer1:hover {
+    background-color: rgba(0, 186, 207, 0.9294117647);
+    transition: 0.5s;
   }
   .answer2 {
     grid-area: answer2;
@@ -323,7 +462,12 @@ nav {
     color: #ffffff;
     height: -moz-fit-content;
     height: fit-content;
+    color: #ffffff;
     border-radius: 10px;
+  }
+  .answer2:hover {
+    background-color: rgba(0, 186, 207, 0.9294117647);
+    transition: 0.5s;
   }
   .answer3 {
     grid-area: answer3;
@@ -331,7 +475,12 @@ nav {
     color: #ffffff;
     height: -moz-fit-content;
     height: fit-content;
+    color: #ffffff;
     border-radius: 10px;
+  }
+  .answer3:hover {
+    background-color: rgba(0, 186, 207, 0.9294117647);
+    transition: 0.5s;
   }
   .answer4 {
     grid-area: answer4;
@@ -339,7 +488,12 @@ nav {
     color: #ffffff;
     height: -moz-fit-content;
     height: fit-content;
+    color: #ffffff;
     border-radius: 10px;
+  }
+  .answer4:hover {
+    background-color: rgba(0, 186, 207, 0.9294117647);
+    transition: 0.5s;
   }
   .hashcat {
     grid-area: hashcat;

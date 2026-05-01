@@ -9,17 +9,20 @@ const answer2 = document.querySelectorAll(".option2");
 const answer3 = document.querySelectorAll(".option3");
 const answer4 = document.querySelectorAll(".option4");
 
+const endBtn = document.getElementById("endSimulationBtn");
+const overlay = document.getElementById("overlay");
+const overlayRestart = document.getElementById("restartFromOverlay");
 
 
 // ========================
 // Flow Chart Logic
 // ========================
 
-/* I undervisningen brugte vi en switch baseret på værdien af textContent, hvor logikken hurtigt blev uoverskuelig i forhold til scenariet. Derfor søgtes en alternativ løsning og der implementeredes en flow-variabel, hvor hvert step er et objekt. En funktion (applyChanges) læser objektet og anvender DOM-manipulation baseret på dets properties (remove, add, resetAll) ved hjælp af conditional checks.
+/* I undervisningen brugte vi en switch baseret på værdien af textContent, hvor logikken hurtigt blev uoverskuelig i forhold til dette scenarie. Derfor søgte jeg en alternativ løsning og der implementerede en flow-variabel, hvor hvert step er et objekt. En funktion (applyChanges) læser objektet og anvender DOM-manipulation baseret på dets properties (remove, add, resetAll) ved hjælp af conditional checks.
 
 Det var vigtigt for mig at kunne ændre i forgreningsscenariet undervejs uden at skulle omskrive store dele af koden. Derfor viste brugen af "data-action" sig at være et mere fleksibelt valg end "textContent".
 
-Jeg undersøgte også muligheder for at undgå index-numre ved at bruge "data-group" på mine stages, så flowchart-logikken ville blive mere tydelig i javascript. Det ville samtidig have gjort koden lettere at forstå og arbejde videre med for andre, uden at de skulle referere til html eller flowchart. Jeg valgte dog at beholde den nuværende model for ikke at afvige for meget fra undervisningsmaterialet og gøre det unødigt komplekst for mit niveau af javascript. */
+Jeg undersøgte også muligheder for helt at undgå index-numre ved at bruge "data-group" på mine stages, så flowchart-logikken ville blive mere tydelig i javascript. Det ville samtidig have gjort koden lettere at forstå og arbejde videre med for andre, uden at de skulle referere til html eller flowchart. Jeg valgte dog at beholde den nuværende model for ikke at afvige for meget fra undervisningsmaterialet og gøre det unødigt komplekst for mit niveau af javascript. */
 
 const flow = {
 
@@ -46,7 +49,7 @@ const flow = {
 
   socialMediaRecon: {
     remove: { stages: [1], answer1: [1], answer2: [1], answer3: [1] },
-    add: { stages: [4], answer1: [4], answer2: [4] }
+    add: { stages: [4], answer1: [4], answer2: [4], answer3: [4] }
   },
 
   // =========================
@@ -67,30 +70,40 @@ const flow = {
   // =========================
   fakeEventEmail: {
     remove: { stages: [3], answer1: [3], answer2: [3], answer3: [3] },
-    add: { stages: [7], answer1: [7] }
+    add: { stages: [7], answer1: [7] },
+    end: true
   },
 
   fakeITReset: {
     remove: { stages: [3], answer1: [3], answer2: [3], answer3: [3] },
-    add: { stages: [8], answer1: [7] }
+    add: { stages: [8], answer1: [7] },
+    end: true
   },
 
   fakeTeacherReset: {
     remove: { stages: [3], answer1: [3], answer2: [3], answer3: [3] },
-    add: { stages: [9], answer1: [7] }
+    add: { stages: [9], answer1: [7] },
+    end: true
   },
 
   // =========================
   // STAGE 4
   // =========================
   personalizedEmail: {
-    remove: { stages: [4], answer1: [4], answer2: [4] },
-    add: { stages: [10], answer1: [7] }
+    remove: { stages: [4], answer1: [4], answer2: [4], answer3: [4] },
+    add: { stages: [10], answer1: [7] },
+    end: true
   },
 
   socialDM: {
-    remove: { stages: [4], answer1: [4], answer2: [4] },
-    add: { stages: [11], answer1: [7] }
+    remove: { stages: [4], answer1: [4], answer2: [4], answer3: [4] },
+    add: { stages: [11], answer1: [7] },
+    end: true
+  },
+
+  dictionaryStage4: {
+    remove: { stages: [4], answer1: [4], answer2: [4], answer3: [4] },
+    add: { stages: [6], answer1: [6], answer2: [6], answer3: [6], answer4: [6] }
   },
 
   // =========================
@@ -98,22 +111,26 @@ const flow = {
   // =========================
   password1: {
     remove: { stages: [5], answer1: [5], answer2: [5], answer3: [5], answer4: [5] },
-    add: { stages: [12], answer1: [7] }
+    add: { stages: [12], answer1: [7] },
+    end: true
   },
 
   password2: {
     remove: { stages: [5], answer1: [5], answer2: [5], answer3: [5], answer4: [5] },
-    add: { stages: [13], answer1: [7] }
+    add: { stages: [13], answer1: [7] },
+    end: true
   },
 
   password3: {
     remove: { stages: [5], answer1: [5], answer2: [5], answer3: [5], answer4: [5] },
-    add: { stages: [14], answer1: [7] }
+    add: { stages: [14], answer1: [7] },
+    end: true
   },
 
   password4: {
     remove: { stages: [5], answer1: [5], answer2: [5], answer3: [5], answer4: [5] },
-    add: { stages: [15], answer1: [7] }
+    add: { stages: [15], answer1: [7] },
+    end: true
   },
 
   // =========================
@@ -121,22 +138,26 @@ const flow = {
   // =========================
   password1b: {
     remove: { stages: [6], answer1: [6], answer2: [6], answer3: [6], answer4: [6] },
-    add: { stages: [16], answer1: [7] }
+    add: { stages: [16], answer1: [7] },
+    end: true
   },
 
   password2b: {
     remove: { stages: [6], answer1: [6], answer2: [6], answer3: [6], answer4: [6] },
-    add: { stages: [17], answer1: [7] }
+    add: { stages: [17], answer1: [7] },
+    end: true
   },
 
   password3b: {
     remove: { stages: [6], answer1: [6], answer2: [6], answer3: [6], answer4: [6] },
-    add: { stages: [18], answer1: [7] }
+    add: { stages: [18], answer1: [7] },
+    end: true
   },
 
   password4b: {
     remove: { stages: [6], answer1: [6], answer2: [6], answer3: [6], answer4: [6] },
-    add: { stages: [19], answer1: [7] }
+    add: { stages: [19], answer1: [7] },
+    end: true
   },
 
   // ===============================================================================
@@ -159,17 +180,17 @@ const applyChanges = (step) => {
   // Brug af "if..." til at kontrollere reset-logik (se også “initial reset” nederst på siden, da denne reset først træder i kraft efter første gennemløb af spillet). ".forEach" anvendes til at iterere over NodeLists, og "classList" bruges til at tilføje/fjerne aktive klasser.
 
   if (step.resetAll) {
-    // Remove ALL active states globally
     document.querySelectorAll(".active").forEach(el => {
-        el.classList.remove("active");
+      el.classList.remove("active");
     });
 
-    // Restore intro state
     stages[0].classList.add("active");
     answer1[0].classList.add("active");
 
+    endBtn.classList.add("hidden");
+
     return;
-    }
+  }
 
   
   // I stedet for switch bruges denne conditional statement for at tilgå klasseelementerne og fjerne/tilføje "active" ifølge flow logikken.
@@ -191,6 +212,10 @@ const applyChanges = (step) => {
     step.add.answer3?.forEach(i => answer3[i]?.classList.add("active"));
     step.add.answer4?.forEach(i => answer4[i]?.classList.add("active"));
   }
+
+  if (step.end) endBtn.classList.remove("hidden");
+
+
 };
 
 
@@ -211,6 +236,8 @@ const handleClick = (e) => {
 
   console.log("Action clicked:", action);
 
+  if (!action) return;
+
   const step = flow[action];
 
   if (!step) {
@@ -227,7 +254,7 @@ const handleClick = (e) => {
 // EVENT LISTENERS
 // =========================
 
-// Alle knapper samles i én array og får tildelt samme event listener via ".forEach".
+// Alle knapper samles i ét array og får tildelt samme event listener via ".forEach".
 const allButtons = [
   ...answer1,
   ...answer2,
@@ -242,5 +269,18 @@ allButtons.forEach(btn => {
 
 // Tilføjede denne, fordi reset logikken ikke virkede ved første render af siden.
 document.addEventListener("DOMContentLoaded", () => {
+  applyChanges({ resetAll: true });
+});
+
+
+// "End simulation" button
+endBtn.addEventListener("click", () => {
+  overlay.classList.remove("hidden");
+  document.body.style.overflow = "hidden";
+});
+
+overlayRestart.addEventListener("click", () => {
+  overlay.classList.add("hidden");
+  document.body.style.overflow = "";
   applyChanges({ resetAll: true });
 });

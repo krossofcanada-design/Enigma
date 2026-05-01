@@ -15,27 +15,35 @@ body {
     background-image: url(../img/Motherboard.jpg);
     background-repeat: no-repeat;
     background-position: top;
+    cursor: crosshair;
    
     p {
-        font-size: 18px;
+        font-size: 16px;
         color: partial.$text-color;
         line-height: 1.5;
     }
 
-    a {
-        font-weight: 300;
-        font-size: 30px;
-        color: partial.$text-color;
-        text-decoration: none;
+    :hover {
+        cursor: crosshair;
     }
 
 }
 
 nav {
+    display: flex;
+    justify-content: space-between;
     background-color: partial.$bg-color;
     padding-left: 25px;
     height: 90px;
-    align-content: center;
+    
+
+    a {
+        font-weight: 300;
+        font-size: 20px;
+        color: partial.$text-color;
+        text-decoration: none;
+        align-content: center;
+    }
 }
 
 /* These are settings for the tab-function */
@@ -50,7 +58,7 @@ nav {
 .stage {
     display: none;
     margin: 0 auto;
-    padding: 3em;
+    padding: 2em;
     line-height: 1.5;
 
     // & grabs the html "active". You could also write .stage.active
@@ -68,7 +76,7 @@ nav {
     margin: 0 auto;
     background-color: transparent;
     border: none;
-    padding: 1em 2em;
+    padding: 1em 1.4em;
     font-family: partial.$font;
 
     :hover {
@@ -84,16 +92,68 @@ nav {
 }
 
 
+// "End simulation" info box
 
-/* Grid and media-query, mobile first. Max and min widths are set so they make sense with the layout, not according to screen size neccessarily */
+#endSimulationBtn {
+    @include partial.simulation-btns ();
+    padding: 0 1.6em;
+
+}
+
+.hidden {
+  display: none;
+}
+
+// Overlay (bottom of html)
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.7);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  z-index: 999;
+
+}
+
+.overlay.hidden {
+  display: none;
+}
+
+.overlay-box {
+  background: rgba(255, 255, 255, 0.967);
+  padding: 2rem;
+  border-radius: 8px;
+  max-width: 400px;
+  text-align: center;
+
+  p {
+    color: partial.$bg-color;
+  }
+
+}
+
+#restartFromOverlay {
+@include partial.simulation-btns ();
+padding: .8rem 1.6rem;
+}
+
+
+
+/* ================= Grid and media-query, mobile first. Max and min widths are set so they make sense with the layout, not according to standard screen size ================= */
 
 .grid {
     display: grid;
     grid-template-columns: repeat(7, 1fr);
     min-height: 100vh;
-    gap: 1em;
+    gap: 5px;
     grid-template-areas:
-    "vector1 . . . . eye eye"
+    "vector1 . . . . . . "
     "vector1 lock lock lock key key ."
     "vector2 text text text text text ."
     "vector2 answer1 answer1 answer1 answer1 answer1 ."
@@ -116,15 +176,6 @@ nav {
     grid-area: vector2;
     background-image: url(../img/vector2.png);
     background-position: center;
-    background-repeat: no-repeat;
-}
-
-.eye {
-    grid-area: eye;
-    background-image: url(../img/eye.png);
-    transform: translateY(-50px);
-    background-size: contain;
-    background-position: right;
     background-repeat: no-repeat;
 }
 
@@ -156,10 +207,8 @@ nav {
     background-color: partial.$bg-color;
     color: partial.$text-color;
     height: fit-content;
-
     @include partial.bg-boxes();
 }
-
 
 .answer1 {
     grid-area: answer1;
@@ -205,9 +254,15 @@ nav {
 
 }
 
-
+// ==================== MIDDLE SIZE ==================================
 
 @media (min-width: 1050px) {
+
+    nav {
+        a {
+            font-size: 25px;
+        }
+    }
 
     .grid {
         display: grid;
@@ -215,8 +270,8 @@ nav {
         min-height: 100vh;
         gap: 1em;
         grid-template-areas:
-        "vector1 . . . . . eye"
-        "vector1 lock lock lock key key eye"
+        "vector1 . . . . . ."
+        "vector1 lock lock lock key key ."
         "vector2 text text text text text ."
         "vector2 answer1 answer1 answer1 hashcat hashcat hashcat"
         "vector2 answer2 answer2 answer2 hashcat hashcat hashcat"
@@ -233,16 +288,6 @@ nav {
         background-position: center;
         background-repeat: no-repeat;
     }
-
-    .eye {
-        grid-area: eye;
-        background-image: url(../img/eye.png);
-        transform: translateY(-110px);
-        background-size: contain;
-        background-position: center;
-        background-repeat: no-repeat;
-    }
-
 
     .lock {
         grid-area: lock;
@@ -320,7 +365,17 @@ nav {
 
 }
 
+
+// ================= LARGE SIZE ===================
+
+
 @media (min-width: 1440px) {
+
+    nav {
+    a {
+        font-size: 30px;
+     }
+    }
 
     .grid {
         display: grid;
@@ -328,8 +383,8 @@ nav {
         min-height: 100vh;
         gap: 2em;
         grid-template-areas:
-        "vector1 . . . . . eye"
-        "vector1 lock lock lock key key eye"
+        "vector1 . . . . . ."
+        "vector1 lock lock lock key key ."
         "vector2 text text answer1 answer1 hashcat hashcat"
         "vector2 text text answer2 answer2 hashcat hashcat"
         "vector2 text text answer3 answer3 hashcat hashcat"
@@ -337,22 +392,6 @@ nav {
         "vector2 . . . . hashcat hashcat"
         ;
 
-    }
-
-    .vector1 {
-        grid-area: vector1;
-        background-image: url(../img/vector1.png);
-        background-position: center;
-        background-repeat: no-repeat;
-    }
-
-    .eye {
-        grid-area: eye;
-        background-image: url(../img/eye.png);
-        transform: translateY(-100px);
-        background-size: contain;
-        background-position: center;
-        background-repeat: no-repeat;
     }
 
 
