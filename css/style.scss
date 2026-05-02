@@ -52,6 +52,11 @@ nav {
         color: partial.$text-color;
         text-decoration: none;
         align-content: center;
+
+        &:hover {
+            color: partial.$sec-color;
+            transition: 0.5s;
+        }
     }
 }
 
@@ -78,28 +83,20 @@ nav {
     }  
 }
 
-
-.option1,
-.option2,
-.option3,
-.option4 {
+// Loops inside SCSS!
+@for $i from 1 through 4 {
+  .option#{$i} {
     display: none;
-    margin: 0 auto;
-    background-color: transparent;
-    border: none;
-    padding: 1em 1.4em;
-    font-family: partial.$font;
-
-    :hover {
-        color: partial.$bg-color;
-        transition: 0.5s;
-
+    ...
+    
+    &:hover {
+      color: partial.$bg-color;
     }
 
-    &.active { 
-        display: block;
-    }  
- 
+    &.active {
+      display: block;
+    }
+  }
 }
 
 
@@ -134,7 +131,7 @@ nav {
   justify-content: center;
   align-items: center;
 
-  z-index: 999;
+  z-index: 1002;
 
 }
 
@@ -226,40 +223,17 @@ padding: .8rem 1.6rem;
     @include partial.bg-boxes();
 }
 
-.answer1 {
-    grid-area: answer1;
+
+// Using a second loop inside scss!
+@for $i from 1 through 4 {
+  .answer#{$i} {
+    grid-area: answer#{$i};
     background-color: partial.$sec-color;
     color: partial.$text-color;
     height: fit-content;
 
     @include partial.bg-boxes($bg-color: partial.$sec-color);
-}
-
-.answer2 {
-    grid-area: answer2;
-    background-color: partial.$sec-color;
-    color: partial.$text-color;
-    height: fit-content;
-
-    @include partial.bg-boxes($bg-color: partial.$sec-color);
-}
-
-.answer3 {
-    grid-area: answer3;
-    background-color: partial.$sec-color;
-    color: partial.$text-color;
-    height: fit-content;
-
-    @include partial.bg-boxes($bg-color: partial.$sec-color);
-}
-
-.answer4 {
-    grid-area: answer4;
-    background-color: partial.$sec-color;
-    color: partial.$text-color;
-    height: fit-content;
-
-    @include partial.bg-boxes($bg-color: partial.$sec-color);
+  }
 }
 
 

@@ -40,6 +40,9 @@ nav a {
   text-decoration: none;
   align-content: center;
 }
+nav a:hover {
+  color: rgba(0, 186, 207, 0.9294117647);
+}
 
 /* These are settings for the tab-function */
 :focus-visible {
@@ -119,7 +122,7 @@ nav a {
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 999;
+  z-index: 1002;
 }
 
 .overlay.hidden {
