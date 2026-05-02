@@ -16,6 +16,13 @@ body {
     background-repeat: no-repeat;
     background-position: top;
     cursor: crosshair;
+
+    h1 {
+        font-size: 20px;
+        color: partial.$bg-color;
+        padding-bottom: 1.5rem;
+        border-bottom: 1px solid partial.$sec-color;
+    }
    
     p {
         font-size: 16px;
@@ -144,6 +151,7 @@ nav {
 
   p {
     color: partial.$bg-color;
+    text-align: left;
   }
 
 }
@@ -369,7 +377,7 @@ padding: .8rem 1.6rem;
         ;
 
         p {
-            font-size: 20px;
+            font-size: 18px;
         }
 
     }

@@ -9,6 +9,12 @@ body {
   background-position: top;
   cursor: crosshair;
 }
+body h1 {
+  font-size: 20px;
+  color: rgba(24, 89, 121, 0.9294117647);
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid rgba(0, 186, 207, 0.9294117647);
+}
 body p {
   font-size: 16px;
   color: #ffffff;
@@ -129,6 +135,7 @@ nav a {
 }
 .overlay-box p {
   color: rgba(24, 89, 121, 0.9294117647);
+  text-align: left;
 }
 
 #restartFromOverlay {
@@ -334,6 +341,6 @@ nav a {
     grid-template-areas: ". lock lock lock key key ." "vector2 text text answer1 answer1 . ." "vector2 text text answer2 answer2 . ." "vector2 text text answer3 answer3 . ." "vector2 text text answer4 answer4 . ." "vector2 . . . . . .";
   }
   .grid p {
-    font-size: 20px;
+    font-size: 18px;
   }
 }/*# sourceMappingURL=style.css.map */
