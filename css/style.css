@@ -42,6 +42,7 @@ nav a {
 }
 nav a:hover {
   color: rgba(0, 186, 207, 0.9294117647);
+  transition: 0.5s;
 }
 
 /* These are settings for the tab-function */
@@ -60,9 +61,54 @@ nav a:hover {
   display: block;
 }
 
-.option1,
-.option2,
-.option3,
+.option1 {
+  display: none;
+  margin: 0 auto;
+  background-color: transparent;
+  border: none;
+  padding: 1em 1.4em;
+  font-family: "Intel One Mono", monospace;
+}
+.option1 :hover {
+  color: rgba(24, 89, 121, 0.9294117647);
+  transition: 0.5s;
+}
+.option1.active {
+  display: block;
+}
+
+.option2 {
+  display: none;
+  margin: 0 auto;
+  background-color: transparent;
+  border: none;
+  padding: 1em 1.4em;
+  font-family: "Intel One Mono", monospace;
+}
+.option2 :hover {
+  color: rgba(24, 89, 121, 0.9294117647);
+  transition: 0.5s;
+}
+.option2.active {
+  display: block;
+}
+
+.option3 {
+  display: none;
+  margin: 0 auto;
+  background-color: transparent;
+  border: none;
+  padding: 1em 1.4em;
+  font-family: "Intel One Mono", monospace;
+}
+.option3 :hover {
+  color: rgba(24, 89, 121, 0.9294117647);
+  transition: 0.5s;
+}
+.option3.active {
+  display: block;
+}
+
 .option4 {
   display: none;
   margin: 0 auto;
@@ -71,16 +117,10 @@ nav a:hover {
   padding: 1em 1.4em;
   font-family: "Intel One Mono", monospace;
 }
-.option1 :hover,
-.option2 :hover,
-.option3 :hover,
 .option4 :hover {
   color: rgba(24, 89, 121, 0.9294117647);
   transition: 0.5s;
 }
-.option1.active,
-.option2.active,
-.option3.active,
 .option4.active {
   display: block;
 }

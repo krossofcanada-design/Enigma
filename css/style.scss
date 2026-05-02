@@ -83,20 +83,27 @@ nav {
     }  
 }
 
-// Loops inside SCSS!
+
+// Using a loop in SCSS! So cool!
 @for $i from 1 through 4 {
   .option#{$i} {
     display: none;
-    ...
-    
-    &:hover {
-      color: partial.$bg-color;
+    margin: 0 auto;
+    background-color: transparent;
+    border: none;
+    padding: 1em 1.4em;
+    font-family: partial.$font;
+
+    :hover {
+        color: partial.$bg-color;
+        transition: 0.5s;
+
     }
 
-    &.active {
-      display: block;
-    }
-  }
+    &.active { 
+        display: block;
+    }  
+}
 }
 
 
@@ -224,7 +231,7 @@ padding: .8rem 1.6rem;
 }
 
 
-// Using a second loop inside scss!
+// Using a loop inside scss!
 @for $i from 1 through 4 {
   .answer#{$i} {
     grid-area: answer#{$i};

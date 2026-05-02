@@ -172,7 +172,7 @@ const flow = {
 };
 
 
-
+// hashcat state-1 med sorte øjne, of state-2 med glødende øjne
 function updateHashcatState() {
   if (!hashcat) return;
 
